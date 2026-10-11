@@ -30,7 +30,7 @@ Fuentes de verdad:
 | 9 | Métricas y reconocimiento (RF-47 a RF-49, RN-08, RN-09) | ✅ completada |
 | 10 | Moderación y administración (RF-50 a RF-57, RN-11) | ✅ completada |
 | 11 | Seguridad y calidad (Policies, tests RN-01 a RN-11) | ✅ completada (P01–P30) |
-| 12 | Entrega: README, credenciales demo, docs | ⬜ pendiente |
+| 12 | Entrega: README, credenciales demo, docs | ✅ completada |
 
 Leyenda: ⬜ pendiente · 🟡 en curso · ✅ completada · 🧪 migrada y con tests en verde
 
