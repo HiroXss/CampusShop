@@ -8,9 +8,7 @@ use Illuminate\View\View;
 
 class MiTiendaMetricasController extends Controller
 {
-    public function __construct(private readonly MetricasService $metricas)
-    {
-    }
+    public function __construct(private readonly MetricasService $metricas) {}
 
     /**
      * Dashboard de métricas del emprendedor (RF-47 a RF-49).

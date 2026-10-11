@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Emprendimiento extends Model
 {
@@ -14,9 +15,13 @@ class Emprendimiento extends Model
     protected $table = 'emprendimientos';
 
     public const ESTADO_PENDIENTE = 'pendiente';
+
     public const ESTADO_APROBADO = 'aprobado';
+
     public const ESTADO_RECHAZADO = 'rechazado';
+
     public const ESTADO_PAUSADO = 'pausado';
+
     public const ESTADO_SUSPENDIDO = 'suspendido';
 
     protected $fillable = [
@@ -51,7 +56,7 @@ class Emprendimiento extends Model
 
     public static function unicoSlug(string $nombre, ?int $ignorarId = null): string
     {
-        $base = \Illuminate\Support\Str::slug($nombre);
+        $base = Str::slug($nombre);
         $slug = $base;
         $i = 1;
         while (self::query()->where('slug', $slug)->where('id', '!=', $ignorarId)->exists()) {

@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Conversacion>
+ * @extends Factory<Conversacion>
  */
 class ConversacionFactory extends Factory
 {

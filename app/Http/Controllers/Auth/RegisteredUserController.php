@@ -60,6 +60,7 @@ class RegisteredUserController extends Controller
 
         // El usuario debe verificar su correo antes de operar (RF-02).
         Auth::login($user);
+
         return redirect(route('verification.notice', absolute: false));
     }
 }

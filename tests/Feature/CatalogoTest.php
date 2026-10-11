@@ -40,7 +40,7 @@ class CatalogoTest extends TestCase
             'estado' => Producto::ESTADO_DISPONIBLE,
         ]);
 
-        $response = $this->get('/catalogo?q=Camiseta&categoria='.$catA->id.'&tipo=producto&precio_min=10000&precio_max=40000');
+        $response = $this->get('/productos?q=Camiseta&categoria='.$catA->id.'&tipo=producto&precio_min=10000&precio_max=40000');
 
         $response->assertOk();
         $nombres = $response->viewData('productos')->pluck('nombre')->all();
@@ -48,7 +48,7 @@ class CatalogoTest extends TestCase
         $this->assertNotContains($logo->nombre, $nombres);
 
         // El filtro por tipo servicio deja fuera la camiseta (tipo producto).
-        $soloServicio = $this->get('/catalogo?q=Camiseta&tipo=servicio');
+        $soloServicio = $this->get('/productos?q=Camiseta&tipo=servicio');
         $this->assertSame([], $soloServicio->viewData('productos')->pluck('nombre')->all());
     }
 
@@ -73,20 +73,21 @@ class CatalogoTest extends TestCase
             'estado' => Producto::ESTADO_INACTIVO,
         ]);
 
-        $catalogo = $this->get('/catalogo');
+        $catalogo = $this->get('/productos');
         $ids = $catalogo->viewData('productos')->pluck('id')->all();
 
         $this->assertContains($disponible->id, $ids);
         $this->assertContains($agotado->id, $ids);
         $this->assertNotContains($inactivo->id, $ids);
 
-        // El detalle del agotado no ofrece agregar al carrito.
-        $this->get('/catalogo/'.$agotado->id)
+        // El detalle del agotado no ofrece pedirlo: muestra «Producto agotado» y
+        // no incluye el formulario de agregar al carrito de ESTE producto (RN-03).
+        $this->get('/productos/'.$agotado->id)
             ->assertOk()
-            ->assertDontSee('Agregar al carrito')
-            ->assertSee('Producto agotado');
+            ->assertSee('Producto agotado')
+            ->assertDontSee(route('carrito.agregar', $agotado));
 
         // El detalle del inactivo no es visible para el público.
-        $this->get('/catalogo/'.$inactivo->id)->assertNotFound();
+        $this->get('/productos/'.$inactivo->id)->assertNotFound();
     }
 }

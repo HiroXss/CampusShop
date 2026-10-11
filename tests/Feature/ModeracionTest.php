@@ -44,7 +44,7 @@ class ModeracionTest extends TestCase
 
         $this->assertTrue((bool) $producto->fresh()->oculto);
 
-        $idsCatalogo = $this->get('/catalogo')->viewData('productos')->pluck('id')->all();
+        $idsCatalogo = $this->get('/productos')->viewData('productos')->pluck('id')->all();
         $this->assertNotContains($producto->id, $idsCatalogo);
     }
 

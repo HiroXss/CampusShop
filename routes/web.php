@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [InicioController::class, 'index'])->name('inicio');
-Route::get('/catalogo', [CatalogoController::class, 'index'])->name('catalogo.index');
-Route::get('/catalogo/{producto}', [CatalogoController::class, 'show'])->name('catalogo.producto');
+Route::get('/productos', [CatalogoController::class, 'index'])->name('catalogo.index');
+Route::get('/productos/{producto}', [CatalogoController::class, 'show'])->name('catalogo.producto');
 Route::get('/emprendimientos', [EmprendimientoPublicoController::class, 'index'])->name('emprendimientos.index');
 Route::get('/emprendimientos/{emprendimiento}', [EmprendimientoPublicoController::class, 'show'])->name('emprendimientos.show');
 
