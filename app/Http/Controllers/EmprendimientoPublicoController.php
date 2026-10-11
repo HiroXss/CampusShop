@@ -4,15 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Categoria;
 use App\Models\Emprendimiento;
+use App\Models\Producto;
 use App\Services\MetricasService;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class EmprendimientoPublicoController extends Controller
 {
-    public function __construct(private readonly MetricasService $metricas)
-    {
-    }
+    public function __construct(private readonly MetricasService $metricas) {}
 
     /**
      * Listado público de emprendimientos con búsqueda y filtro por categoría (RF-14).
@@ -56,7 +54,7 @@ class EmprendimientoPublicoController extends Controller
         $emprendimiento->load('categoria', 'user');
 
         $productos = $emprendimiento->productos()
-            ->whereIn('estado', [\App\Models\Producto::ESTADO_DISPONIBLE, \App\Models\Producto::ESTADO_AGOTADO])
+            ->whereIn('estado', [Producto::ESTADO_DISPONIBLE, Producto::ESTADO_AGOTADO])
             ->where('oculto', false)
             ->with('imagenes')
             ->latest()

@@ -11,9 +11,7 @@ use Illuminate\View\View;
 
 class PedidoEmprendedorController extends Controller
 {
-    public function __construct(private readonly PedidoService $pedidos)
-    {
-    }
+    public function __construct(private readonly PedidoService $pedidos) {}
 
     /**
      * Pedidos recibidos por el emprendimiento (RF-41) con filtro por estado.

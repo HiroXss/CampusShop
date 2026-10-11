@@ -8,9 +8,7 @@ use Illuminate\View\View;
 
 class InicioController extends Controller
 {
-    public function __construct(private readonly MetricasService $metricas)
-    {
-    }
+    public function __construct(private readonly MetricasService $metricas) {}
 
     /**
      * Página de inicio (RF-27, RF-28): destacados, más vendidos, mejor

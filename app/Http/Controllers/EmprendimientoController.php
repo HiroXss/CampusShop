@@ -38,7 +38,7 @@ class EmprendimientoController extends Controller
 
         $data = $request->validated();
 
-        $emprendimiento = new Emprendimiento();
+        $emprendimiento = new Emprendimiento;
         $emprendimiento->user_id = $request->user()->id;
         $emprendimiento->categoria_id = $data['categoria_id'];
         $emprendimiento->nombre = $data['nombre'];

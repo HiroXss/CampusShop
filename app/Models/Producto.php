@@ -14,10 +14,13 @@ class Producto extends Model
     protected $table = 'productos';
 
     public const TIPO_PRODUCTO = 'producto';
+
     public const TIPO_SERVICIO = 'servicio';
 
     public const ESTADO_DISPONIBLE = 'disponible';
+
     public const ESTADO_AGOTADO = 'agotado';
+
     public const ESTADO_INACTIVO = 'inactivo';
 
     protected $fillable = [

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Emprendimiento;
 use App\Models\Producto;
-use DomainException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;

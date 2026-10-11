@@ -12,13 +12,14 @@ use App\Policies\EmprendimientoPolicy;
 use App\Policies\PedidoPolicy;
 use App\Policies\ProductoPolicy;
 use App\Policies\ResenaPolicy;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Relación polimórfica de reportes (RFD-09): 'producto' | 'emprendimiento'.
-        \Illuminate\Database\Eloquent\Relations\Relation::enforceMorphMap([
+        Relation::enforceMorphMap([
             'producto' => Producto::class,
             'emprendimiento' => Emprendimiento::class,
         ]);
