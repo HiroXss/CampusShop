@@ -9,7 +9,9 @@ class Reporte extends Model
     protected $table = 'reportes';
 
     public const ESTADO_PENDIENTE = 'pendiente';
+
     public const ESTADO_DESCARTADO = 'descartado';
+
     public const ESTADO_ACEPTADO = 'aceptado';
 
     protected $fillable = [

@@ -8,7 +8,7 @@ use App\Models\Resena;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resena>
+ * @extends Factory<Resena>
  */
 class ResenaFactory extends Factory
 {

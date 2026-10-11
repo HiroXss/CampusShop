@@ -3,6 +3,7 @@
 use App\Models\Emprendimiento;
 use App\Models\Pedido;
 use App\Models\Producto;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
 
 if (! function_exists('cop')) {
@@ -46,7 +47,7 @@ if (! function_exists('carritoProductos')) {
     /**
      * Productos del carrito con los datos vigentes de la base de datos (RN-16).
      */
-    function carritoProductos(): \Illuminate\Support\Collection
+    function carritoProductos(): Collection
     {
         $ids = array_keys(carrito());
 

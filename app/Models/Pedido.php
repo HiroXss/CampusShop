@@ -12,12 +12,17 @@ class Pedido extends Model
     protected $table = 'pedidos';
 
     public const ESTADO_PENDIENTE = 'pendiente';
+
     public const ESTADO_CONFIRMADO = 'confirmado';
+
     public const ESTADO_ENTREGADO = 'entregado';
+
     public const ESTADO_RECHAZADO = 'rechazado';
+
     public const ESTADO_CANCELADO = 'cancelado';
 
     public const PAGO_EFECTIVO = 'efectivo';
+
     public const PAGO_TRANSFERENCIA = 'transferencia';
 
     protected $fillable = [

@@ -13,9 +13,7 @@ use Illuminate\View\View;
 
 class PedidoController extends Controller
 {
-    public function __construct(private readonly PedidoService $pedidos)
-    {
-    }
+    public function __construct(private readonly PedidoService $pedidos) {}
 
     /**
      * Listado de pedidos del comprador (RF-42).

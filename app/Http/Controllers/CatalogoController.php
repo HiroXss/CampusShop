@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categoria;
+use App\Models\Pedido;
 use App\Models\Producto;
 use App\Models\Resena;
 use App\Services\MetricasService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class CatalogoController extends Controller
 {
-    public function __construct(private readonly MetricasService $metricas)
-    {
-    }
+    public function __construct(private readonly MetricasService $metricas) {}
 
     /**
      * Catálogo con búsqueda y filtros (RF-23 a RF-26): texto, categoría, tipo,
@@ -26,7 +23,7 @@ class CatalogoController extends Controller
             ? request('orden')
             : 'recientes';
 
-        $query = \App\Models\Producto::visibles()
+        $query = Producto::visibles()
             ->with('emprendimiento', 'imagenes');
 
         if ($q = trim((string) request('q'))) {
@@ -56,10 +53,10 @@ class CatalogoController extends Controller
             'precio_asc' => $query->orderBy('precio'),
             'precio_desc' => $query->orderByDesc('precio'),
             'mejor_calificados' => $query->orderByDesc(
-                \App\Models\Resena::selectRaw('avg(puntuacion)')
+                Resena::selectRaw('avg(puntuacion)')
                     ->whereColumn('emprendimiento_id', 'productos.emprendimiento_id')
             )->orderByDesc('id'),
-            'mas_vendidos' => $query->withCount(['pedidoItems as vendidos' => fn ($i) => $i->whereHas('pedido', fn ($p) => $p->where('estado', \App\Models\Pedido::ESTADO_ENTREGADO))])->orderByDesc('vendidos'),
+            'mas_vendidos' => $query->withCount(['pedidoItems as vendidos' => fn ($i) => $i->whereHas('pedido', fn ($p) => $p->where('estado', Pedido::ESTADO_ENTREGADO))])->orderByDesc('vendidos'),
             default => $query->latest(),
         };
 
@@ -80,7 +77,7 @@ class CatalogoController extends Controller
     /**
      * Detalle de producto (RF-25): galería, emprendimiento, reseñas y relacionados.
      */
-    public function show(\App\Models\Producto $producto): View
+    public function show(Producto $producto): View
     {
         // Solo productos visibles (RN-12) para el público.
         if (! $producto->isVisible()) {
@@ -104,7 +101,7 @@ class CatalogoController extends Controller
             ->limit(6)
             ->get();
 
-        $relacionados = \App\Models\Producto::visibles()
+        $relacionados = Producto::visibles()
             ->where('id', '!=', $producto->id)
             ->where(function ($w) use ($producto) {
                 $w->where('emprendimiento_id', $producto->emprendimiento_id)

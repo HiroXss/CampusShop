@@ -37,8 +37,8 @@ class SmokeTest extends TestCase
         ]);
 
         $this->get('/')->assertOk();
-        $this->get('/catalogo')->assertOk();
-        $this->get('/catalogo/'.$producto->id)->assertOk();
+        $this->get('/productos')->assertOk();
+        $this->get('/productos/'.$producto->id)->assertOk();
         $this->get('/emprendimientos')->assertOk();
         $this->get('/emprendimientos/'.$emp->slug)->assertOk();
         $this->get('/login')->assertOk();
