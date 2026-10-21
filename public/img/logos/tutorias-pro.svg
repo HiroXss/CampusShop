@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF0FF"/>
+      <stop offset="1" stop-color="#D5DBFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" rx="170" fill="url(#g)"/>
+  <circle cx="400" cy="400" r="280" fill="#FFFFFF" opacity="0.5"/>
+  <path d="M400 250 L610 340 L400 430 L190 340 Z" fill="#5B4BDB"/>
+  <path d="M400 430 L530 378 L530 470 q-60 60 -130 60 q-70 0 -130 -60 L270 378 Z" fill="#3B3AB0"/>
+  <path d="M590 348 v120" stroke="#FF8A3D" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="590" cy="486" r="22" fill="#FF8A3D"/>
+  <text x="400" y="560" text-anchor="middle" font-family="Cambria Math, Georgia, serif"
+        font-size="76" fill="#FF8A3D" font-weight="bold">∫f(x)dx</text>
+</svg>

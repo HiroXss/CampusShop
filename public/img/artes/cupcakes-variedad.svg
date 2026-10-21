@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF1F5"/>
+      <stop offset="1" stop-color="#FBD9E4"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2A2350" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="690" cy="120" r="140" fill="#FFFFFF" opacity="0.3"/>
+  <circle cx="110" cy="690" r="160" fill="#FFFFFF" opacity="0.22"/>
+  <g filter="url(#sh)">
+  <path d="M120 500 l30 150 a16 16 0 0 0 16 12 h120 a16 16 0 0 0 16 -12 l30 -150 z" fill="#D9A15B"/>
+  <path d="M145 500 q0 -90 75 -90 q26 -56 100 -30 q56 -28 96 30 q52 16 45 90 z" fill="#FADCBF"/>
+  <path d="M340 470 l30 170 a16 16 0 0 0 16 12 h168 a16 16 0 0 0 16 -12 l30 -170 z" fill="#C08A46"/>
+  <path d="M370 470 q0 -100 92 -100 q30 -64 118 -36 q66 -32 112 30 q60 18 52 106 z" fill="#C8B6F0"/>
+  <circle cx="230" cy="400" r="24" fill="#E23B3B"/>
+  <circle cx="500" cy="368" r="26" fill="#F6C9D6"/>
+  <path d="M500 368 q-6 -38 -30 -54" stroke="#5E8B4A" stroke-width="7" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="400" y="760" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="30" font-weight="600" fill="#5B4BDB" opacity="0.75">Varios sabores</text>
+</svg>

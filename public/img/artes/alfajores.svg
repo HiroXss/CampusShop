@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF0FF"/>
+      <stop offset="1" stop-color="#DCE3FF"/>
+    </linearGradient>
+    <filter id="sombra" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2A2350" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="700" cy="110" r="150" fill="#FFFFFF" opacity="0.35"/>
+  <circle cx="90" cy="700" r="180" fill="#FFFFFF" opacity="0.25"/>
+  <g filter="url(#sombra)">
+  <ellipse cx="400" cy="650" rx="240" ry="36" fill="#3A2A22" opacity="0.18"/>
+  <g transform="translate(150,380)">
+    <ellipse cx="120" cy="180" rx="110" ry="34" fill="#D9A15B"/>
+    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#FBF3E2"/>
+    <rect x="10" y="140" width="220" height="40" fill="#FBF3E2"/>
+    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#C98A4B"/>
+    <ellipse cx="120" cy="96" rx="110" ry="34" fill="#FBF3E2"/>
+    <rect x="10" y="60" width="220" height="40" fill="#FBF3E2"/>
+    <ellipse cx="120" cy="60" rx="110" ry="34" fill="#E8CB97"/>
+    <path d="M10 140 q110 44 220 0" stroke="#7A5230" stroke-width="6" fill="none" opacity="0.4"/>
+  </g>
+  <g transform="translate(400,320)">
+    <ellipse cx="120" cy="180" rx="110" ry="34" fill="#D9A15B"/>
+    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#FBF3E2"/>
+    <rect x="10" y="140" width="220" height="40" fill="#FBF3E2"/>
+    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#C98A4B"/>
+    <ellipse cx="120" cy="96" rx="110" ry="34" fill="#FBF3E2"/>
+    <rect x="10" y="60" width="220" height="40" fill="#FBF3E2"/>
+    <ellipse cx="120" cy="60" rx="110" ry="34" fill="#E8CB97"/>
+    <path d="M10 140 q110 44 220 0" stroke="#7A5230" stroke-width="6" fill="none" opacity="0.4"/>
+  </g>
+  </g>
+</svg>

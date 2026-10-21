@@ -15,34 +15,80 @@ class ProductoSeeder extends Seeder
     {
         Storage::disk('public')->put('productos/placeholder.svg', file_get_contents(public_path('img/placeholder-producto.svg')));
 
-        // [nombre, tipo, precio, stock, categoría, descripción]
+        // [nombre, tipo, precio, stock, imágenes, descripción]
         $catalogo = [
             'Dulce Campus' => [
-                ['Torta de chocolate', 'producto', 55000, 6, 'Repostería', 'Torta húmeda de chocolate con arequipe y cobertura de chocolate.'],
-                ['Caja de cupcakes (6)', 'producto', 28000, 12, 'Repostería', 'Caja de seis cupcakes decorados a elección.'],
-                ['Cheesecake de maracuyá', 'producto', 38000, 8, 'Repostería', 'Cheesecake cremoso con salsa de maracuyá natural.'],
-                ['Alfajores artesanales', 'producto', 12000, 30, 'Repostería', 'Seis bocaditos de arequipe bañados en chocolate.'],
+                [
+                    'Torta de chocolate', 'producto', 55000, 6, ['torta-chocolate', 'torta-chocolate-corte', 'torta-chocolate-personalizada'],
+                    "Torta húmeda de chocolate con relleno de arequipe y cobertura de chocolate semiamargo.\nPorción para 12 personas. Se prepara por encargo con 24 horas de anticipación.",
+                ],
+                [
+                    'Caja de cupcakes (6)', 'producto', 28000, 12, ['cupcakes', 'cupcakes-variedad'],
+                    "Caja de seis cupcakes decorados a elección: vainilla, chocolate o red velvet.\nIdeales para cumpleaños y reuniones de estudio.",
+                ],
+                [
+                    'Cheesecake de maracuyá', 'producto', 38000, 8, ['cheesecake', 'cheesecake-porcion'],
+                    'Cheesecake cremoso con base de galleta y salsa de maracuyá natural. Disponible en porciones individuales o entero.',
+                ],
+                [
+                    'Alfajores artesanales', 'producto', 12000, 30, ['alfajores', 'alfajores-caja'],
+                    'Seis bocaditos de arequipe bañados en chocolate, espolvoreados con azúcar en polvo. Receta de la abuela.',
+                ],
             ],
             'Tutorías Pro' => [
-                ['Tutoría de Cálculo I (1 hora)', 'servicio', 25000, null, 'Tutorías', 'Asesoría personalizada de cálculo diferencial, presencial o virtual.'],
-                ['Tutoría de Programación (1 hora)', 'servicio', 30000, null, 'Tutorías', 'Apoyo en fundamentos de programación y resolución de ejercicios.'],
-                ['Preparación de parciales', 'servicio', 75000, null, 'Tutorías', 'Acompañamiento de dos horas para preparar tus parciales.'],
-            ],
-            'Estampados UMP' => [
-                ['Camiseta personalizada', 'producto', 45000, 20, 'Ropa y accesorios', 'Camiseta algodón con estampado personalizado a elección.'],
-                ['Mug personalizado', 'producto', 22000, 25, 'Ropa y accesorios', 'Mug cerámico con diseño impreso de alta durabilidad.'],
-                ['Gorra bordada', 'producto', 35000, 15, 'Ropa y accesorios', 'Gorra con bordado del logo que elijas.'],
-            ],
-            'Manos Creativas' => [
-                ['Ilustración personalizada', 'servicio', 60000, null, 'Arte y manualidades', 'Retrato ilustrado digital de la persona que elijas.'],
-                ['Cuadro decorativo', 'producto', 40000, 10, 'Arte y manualidades', 'Cuadro decorativo pintado a mano en acrílico.'],
-                ['Pulsera tejida', 'producto', 15000, 40, 'Arte y manualidades', 'Pulsera tejida a mano con mostacillas de colores.'],
+                [
+                    'Tutoría de Cálculo I (1 hora)', 'servicio', 25000, null, ['tutoria-calculo', 'tutoria-calculo-pizarra'],
+                    'Asesoría personalizada de cálculo diferencial: límites, derivadas e integrales. Presencial en el campus o virtual por videollamada.',
+                ],
+                [
+                    'Tutoría de Programación (1 hora)', 'servicio', 30000, null, ['tutoria-programacion', 'tutoria-programacion-consola'],
+                    'Apoyo en fundamentos de programación, estructuras de datos y resolución de ejercicios en Python, Java o C++.',
+                ],
+                [
+                    'Preparación de parciales', 'servicio', 75000, null, ['preparacion-parciales', 'preparacion-parciales-simulacro'],
+                    'Acompañamiento de dos horas para preparar tus parciales: repaso de temas, simulacros y tips de examen.',
+                ],
             ],
             'Código Fácil' => [
-                ['Página web básica', 'servicio', 350000, null, 'Servicios académicos', 'Desarrollo de página web básica para tu emprendimiento.'],
-                ['Corrección de código', 'servicio', 50000, null, 'Servicios académicos', 'Revisión y corrección de proyectos de software.'],
-                ['Soporte técnico a domicilio', 'servicio', 40000, null, 'Tecnología', 'Diagnóstico y solución de problemas de tu computador.'],
+                [
+                    'Página web básica', 'servicio', 350000, null, ['web-basica', 'web-basica-responsive'],
+                    'Desarrollo de una página web básica para tu emprendimiento: portada, catálogo y formulario de contacto. Incluye dominio por 1 año.',
+                ],
+                [
+                    'Corrección de código', 'servicio', 50000, null, ['correccion-codigo', 'correccion-codigo-informe'],
+                    'Revisión y corrección de proyectos de software: buenas prácticas, errores, rendimiento y entrega de un informe.',
+                ],
+                [
+                    'Soporte técnico a domicilio', 'servicio', 40000, null, ['soporte-tecnico', 'soporte-tecnico-diagnostico'],
+                    'Diagnóstico y solución de problemas de tu computador: lentitud, virus, formateo e instalación de programas.',
+                ],
             ],
+            'Lothus' => [
+                [
+                    'Gorra Loto Negra', 'producto', 45000, 15, ['gora-loto-negra', 'gora-loto-negra-perfil', 'gora-loto-negra-bordado'],
+                    "Gorra negra con la flor de loto bordada en blanco.\nBordado minimalista y versículo «Jehová es mi pastor; nada me faltará» — Salmo 23:1 en el lateral.",
+                ],
+                [
+                    'Gorra Loto Beige', 'producto', 45000, 12, ['gora-loto-beige', 'gora-loto-beige-perfil', 'gora-loto-beige-bordado'],
+                    "Gorra beige de algodón con flor de loto bordada.\nIncluye el versículo «Todo lo puedo en Cristo que me fortalece» — Filipenses 4:13.",
+                ],
+                [
+                    'Gorra Loto Blanca', 'producto', 45000, 18, ['gora-loto-blanca', 'gora-loto-blanca-perfil', 'gora-loto-blanca-bordado'],
+                    "Gorra blanca con flor de loto en azul índigo.\nVersículo «El Señor es mi luz y mi salvación» — Salmo 27:1 bordado al frente.",
+                ],
+                [
+                    'Gorra Loto Azul', 'producto', 48000, 10, ['gora-loto-azul', 'gora-loto-azul-perfil', 'gora-loto-azul-bordado'],
+                    "Gorra azul índigo con flor de loto bordada en blanco.\nVersículo «Esfuérzate y sé valiente» — Josué 1:9. Edición limitada.",
+                ],
+            ],
+        ];
+
+        // Categoría por tienda (los servicios académicos usan la categoría del emprendimiento).
+        $categoriaServicio = [
+            'Tutorías Pro' => 'Tutorías',
+            'Código Fácil' => 'Servicios académicos',
+            'Dulce Campus' => 'Repostería',
+            'Lothus' => 'Ropa y accesorios',
         ];
 
         $shops = Emprendimiento::whereIn('nombre', array_keys($catalogo))
@@ -55,8 +101,8 @@ class ProductoSeeder extends Seeder
                 continue;
             }
 
-            foreach ($productos as [$nombre, $tipo, $precio, $stock, $categoriaNombre, $descripcion]) {
-                $categoria = Categoria::where('nombre', $categoriaNombre)->first()
+            foreach ($productos as [$nombre, $tipo, $precio, $stock, $imagenes, $descripcion]) {
+                $categoria = Categoria::where('nombre', $categoriaServicio[$tienda])->first()
                     ?? Categoria::query()->first();
 
                 $producto = Producto::updateOrCreate(
@@ -72,11 +118,13 @@ class ProductoSeeder extends Seeder
                     ]
                 );
 
-                if ($producto->imagenes()->count() === 0) {
+                // Asocia las artes generadas (storage/app/public/artes).
+                $producto->imagenes()->delete();
+                foreach (array_values($imagenes) as $i => $arte) {
                     ProductoImagen::create([
                         'producto_id' => $producto->id,
-                        'ruta' => 'productos/placeholder.svg',
-                        'orden' => 1,
+                        'ruta' => "artes/{$arte}.svg",
+                        'orden' => $i + 1,
                     ]);
                 }
             }

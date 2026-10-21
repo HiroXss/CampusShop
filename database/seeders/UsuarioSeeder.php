@@ -38,13 +38,12 @@ class UsuarioSeeder extends Seeder
             ]
         );
 
-        // Emprendedores demo (uno por emprendimiento).
+        // Emprendedores demo (uno por emprendimiento activo).
         $emprendedores = [
             ['Laura Gómez', 'laura@'.$dominio, 'Ingeniería de Sistemas'],
             ['Carlos Ruiz', 'carlos@'.$dominio, 'Administración de Empresas'],
-            ['María Torres', 'maria@'.$dominio, 'Diseño Gráfico'],
-            ['Andrés Peña', 'andres@'.$dominio, 'Contaduría Pública'],
             ['Sofía Ramírez', 'sofia@'.$dominio, 'Tecnología en Desarrollo de Software'],
+            ['Daniela Herrera', 'daniela@'.$dominio, 'Diseño Gráfico'],
         ];
 
         foreach ($emprendedores as [$nombre, $email, $programa]) {

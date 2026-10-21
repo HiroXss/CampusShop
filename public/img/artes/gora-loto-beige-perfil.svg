@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FBF7EF"/>
+      <stop offset="1" stop-color="#F0E7D8"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#2A2350" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <circle cx="690" cy="120" r="140" fill="#FFFFFF" opacity="0.3"/>
+  <circle cx="110" cy="690" r="160" fill="#FFFFFF" opacity="0.22"/>
+  <g filter="url(#sh)">
+<path d="M205.0 400.0 a195.0 214.5 0 0 1 390.0 0 l0 119.6 a214.5 41.6 0 0 1 -390.0 0 z" fill="#E9E1D2"/>
+  <path d="M-29.0 522.2 q169.0 54.6 429.0 54.6 l0.0 0.0 q-429.0 -54.6 -429.0 --54.6 z" fill="#D6C9B2"/>
+  <path d="M400.0 519.6 q0 -201.5 0.0 --201.5" stroke="#00000022" stroke-width="7.8" fill="none"/>
+  <circle cx="400.0" cy="198.5" r="15.6" fill="#D6C9B2"/>
+  </g>
+  <text x="400" y="760" text-anchor="middle" font-family="Inter, sans-serif"
+        font-size="30" font-weight="600" fill="#5B4BDB" opacity="0.75">Gorra Loto Beige · perfil</text>
+</svg>

@@ -15,6 +15,11 @@ use App\Models\Visita;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
+/**
+ * Datos de demostración transversales: pedidos en todos los estados, reseñas,
+ * conversaciones con mensajes, visitas y reportes. Alimenta el panel del
+ * emprendedor, las métricas y el panel de moderación del administrador.
+ */
 class DemoSeeder extends Seeder
 {
     public function run(): void
@@ -28,35 +33,50 @@ class DemoSeeder extends Seeder
             $compradores = User::factory()->count(5)->create();
         }
 
-        foreach ($emprendimientos as $emprendimiento) {
+        // El estudiante demo debe tener pedidos propios (comprador principal).
+        $dominio = config('campushop.university_domain');
+        $estudiante = User::where('email', "estudiante@{$dominio}")->first() ?? $compradores->first();
+
+        $estados = [
+            Pedido::ESTADO_ENTREGADO,
+            Pedido::ESTADO_CONFIRMADO,
+            Pedido::ESTADO_PENDIENTE,
+            Pedido::ESTADO_RECHAZADO,
+            Pedido::ESTADO_CANCELADO,
+        ];
+
+        foreach ($emprendimientos as $indice => $emprendimiento) {
             $productos = $emprendimiento->productos()->get();
             if ($productos->isEmpty()) {
                 continue;
             }
 
-            // Pedidos en distintos estados para alimentar las métricas (RN-08).
-            foreach (range(1, 4) as $i) {
-                $comprador = $compradores->random();
+            // 5 pedidos por tienda, uno por cada estado posible (RF-41 a RF-44).
+            foreach ($estados as $i => $estado) {
+                // El primer pedido (entregado) es del estudiante demo para su historial.
+                $comprador = ($indice === 0 && $i === 0) ? $estudiante : $compradores->random();
                 if ($comprador->id === $emprendimiento->user_id) {
-                    continue;
+                    $comprador = $compradores->firstWhere('id', '!=', $emprendimiento->user_id) ?? $comprador;
                 }
 
-                $estado = match ($i) {
-                    1 => Pedido::ESTADO_ENTREGADO,
-                    2 => Pedido::ESTADO_ENTREGADO,
-                    3 => Pedido::ESTADO_PENDIENTE,
-                    default => Pedido::ESTADO_CONFIRMADO,
-                };
+                $creado = now()->subDays(20 - $i * 3);
 
                 $pedido = Pedido::create([
                     'comprador_id' => $comprador->id,
                     'emprendimiento_id' => $emprendimiento->id,
                     'estado' => $estado,
                     'metodo_pago' => $i % 2 === 0 ? Pedido::PAGO_EFECTIVO : Pedido::PAGO_TRANSFERENCIA,
-                    'nota' => $i === 3 ? 'Entregar en la biblioteca, por favor.' : null,
+                    'nota' => in_array($estado, [Pedido::ESTADO_PENDIENTE, Pedido::ESTADO_CONFIRMADO], true)
+                        ? 'Entregar en la biblioteca, por favor.'
+                        : null,
+                    'motivo' => in_array($estado, [Pedido::ESTADO_RECHAZADO, Pedido::ESTADO_CANCELADO], true)
+                        ? ($estado === Pedido::ESTADO_RECHAZADO ? 'No hay stock suficiente para la fecha.' : 'El comprador no confirmó a tiempo.')
+                        : null,
                     'total' => 0,
-                    'confirmado_at' => $estado !== Pedido::ESTADO_PENDIENTE ? now()->subDays(3) : null,
-                    'entregado_at' => $estado === Pedido::ESTADO_ENTREGADO ? now()->subDays(random_int(1, 5)) : null,
+                    'created_at' => $creado,
+                    'updated_at' => $creado,
+                    'confirmado_at' => in_array($estado, [Pedido::ESTADO_CONFIRMADO, Pedido::ESTADO_ENTREGADO], true) ? $creado->copy()->addHours(2) : null,
+                    'entregado_at' => $estado === Pedido::ESTADO_ENTREGADO ? $creado->copy()->addDays(2) : null,
                 ]);
 
                 $total = 0;
@@ -74,20 +94,29 @@ class DemoSeeder extends Seeder
                 }
                 $pedido->update(['total' => $total]);
 
-                // Reseña tras la entrega (RN-07).
+                // Reseña tras la entrega (RN-07), una vez por pedido.
                 if ($estado === Pedido::ESTADO_ENTREGADO) {
-                    Resena::create([
+                    $resena = Resena::create([
                         'pedido_id' => $pedido->id,
                         'comprador_id' => $comprador->id,
                         'emprendimiento_id' => $emprendimiento->id,
                         'puntuacion' => random_int(4, 5),
-                        'comentario' => 'Excelente atención y producto de buena calidad.',
+                        'comentario' => collect([
+                            'Excelente atención y producto de buena calidad.',
+                            'Muy cumplido con la entrega, volveré a comprar.',
+                            'El producto superó mis expectativas. ¡Recomendado!',
+                            'Buena relación precio-calidad, atención muy amable.',
+                        ])->random(),
                     ]);
+                    // La tabla solo conserva created_at (sin updated_at).
+                    \Illuminate\Support\Facades\DB::table('resenas')
+                        ->where('id', $resena->id)
+                        ->update(['created_at' => $creado->copy()->addDays(3)]);
                 }
             }
 
-            // Conversaciones de ejemplo con mensajes (RF-29 a RF-34).
-            foreach ($compradores->take(2) as $comprador) {
+            // Conversaciones de ejemplo con varios mensajes (RF-29 a RF-34).
+            foreach ($compradores->take(3) as $comprador) {
                 if ($comprador->id === $emprendimiento->user_id) {
                     continue;
                 }
@@ -95,41 +124,82 @@ class DemoSeeder extends Seeder
                     'emprendimiento_id' => $emprendimiento->id,
                     'comprador_id' => $comprador->id,
                 ]);
+
+                if ($conversacion->mensajes()->exists()) {
+                    continue;
+                }
+
+                $producto = $productos->random();
                 Mensaje::create([
                     'conversacion_id' => $conversacion->id,
                     'emisor_id' => $comprador->id,
-                    'contenido' => '¡Hola! ¿Tienes disponibilidad de tu producto?',
+                    'contenido' => "¡Hola! Vi \"{$producto->nombre}\" y me interesa. ¿Tienes disponibilidad?",
                 ]);
                 Mensaje::create([
                     'conversacion_id' => $conversacion->id,
                     'emisor_id' => $emprendimiento->user_id,
-                    'contenido' => '¡Claro que sí! ¿Para cuándo lo necesitas?',
+                    'contenido' => '¡Claro que sí! ¿Para qué fecha lo necesitas?',
+                ]);
+                Mensaje::create([
+                    'conversacion_id' => $conversacion->id,
+                    'emisor_id' => $comprador->id,
+                    'contenido' => 'Para la próxima semana, si es posible.',
+                ]);
+                Mensaje::create([
+                    'conversacion_id' => $conversacion->id,
+                    'emisor_id' => $emprendimiento->user_id,
+                    'contenido' => 'Perfecto, te lo tengo listo. ¡Gracias por escribir!',
                 ]);
             }
 
-            // Visitas de ejemplo (RN-08).
-            foreach (range(1, 25) as $v) {
+            // Visitas de ejemplo para las métricas (RN-08).
+            foreach (range(1, 60) as $v) {
                 Visita::create([
                     'emprendimiento_id' => $emprendimiento->id,
                     'producto_id' => $productos->random()->id,
                     'user_id' => null,
                     'sesion' => hash('sha256', Str::random(12).$v),
-                    'fecha' => now()->subDays(random_int(0, 20))->toDateString(),
+                    'fecha' => now()->subDays(random_int(0, 25))->toDateString(),
                 ]);
             }
         }
 
-        // Un reporte de ejemplo sobre un producto.
-        $producto = Producto::query()->first();
-        $reportador = $compradores->first();
-        if ($producto && $reportador) {
+        // Reportes de ejemplo para el panel de moderación del admin (RF-50, RF-51).
+        $productos = Producto::visibles()->get();
+        $motivos = [
+            'La descripción no coincide con el producto que recibí.',
+            'El precio publicado parece incorrecto.',
+            'La imagen no corresponde al producto real.',
+            'Lenguaje inapropiado en la descripción.',
+        ];
+
+        foreach ($productos->take(4) as $i => $producto) {
             Reporte::firstOrCreate(
                 [
-                    'user_id' => $reportador->id,
+                    'user_id' => $compradores[$i % $compradores->count()]->id,
                     'reportable_type' => 'producto',
                     'reportable_id' => $producto->id,
                 ],
-                ['motivo' => 'La descripción no coincide con el producto.', 'estado' => Reporte::ESTADO_PENDIENTE]
+                [
+                    'motivo' => $motivos[$i % count($motivos)],
+                    'estado' => Reporte::ESTADO_PENDIENTE,
+                ]
+            );
+        }
+
+        // Un reporte sobre un emprendimiento.
+        $primerEmprendimiento = $emprendimientos->first();
+        if ($primerEmprendimiento) {
+            Reporte::firstOrCreate(
+                [
+                    'user_id' => $compradores->last()->id,
+                    'reportable_type' => 'emprendimiento',
+                    'reportable_id' => $primerEmprendimiento->id,
+                ],
+                [
+                    'motivo' => 'La tienda publica productos que no ofrece realmente.',
+                    'estado' => Reporte::ESTADO_PENDIENTE,
+                ]
             );
         }
     }
