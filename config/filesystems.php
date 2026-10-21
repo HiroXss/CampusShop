@@ -40,8 +40,17 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            // En hostings compartidos donde symlink() esta deshabilitado
+            // (InfinityFree y similares) las subidas se guardan directamente
+            // dentro de la carpeta web, en public/uploads, para poder servirlas
+            // sin `php artisan storage:link`. En local se conserva el disco
+            // clasico (storage/app/public + enlace public/storage).
+            'root' => env('PUBLIC_DISK_ROOT') === 'public'
+                ? public_path('uploads')
+                : storage_path('app/public'),
+            'url' => env('PUBLIC_DISK_ROOT') === 'public'
+                ? env('APP_URL').'/uploads'
+                : env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,

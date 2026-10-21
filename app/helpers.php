@@ -11,13 +11,12 @@ if (! function_exists('imagen')) {
     /**
      * URL pública de una imagen guardada en el disco público.
      *
-     * Si el archivo también existe en `public/` (como las imágenes del catálogo,
-     * logos y avatares que viven en `public/img`), se sirve directamente desde
-     * ahí. Esto permite que la app funcione en hostings compartidos donde
-     * `symlink()` está deshabilitado y `php artisan storage:link` no es posible.
+     * Se comprueban las carpetas que viven dentro de `public/` (img/ y uploads/),
+     * de modo que la app funcione en hostings compartidos donde `symlink()` está
+     * deshabilitado y `php artisan storage:link` no es posible (InfinityFree).
      *
-     * Si no está en `public/` (subidas de usuarios), se usa el disco público
-     * normal (`storage/app/public`).
+     * Si el archivo no está en `public/`, se usa el disco público de Laravel
+     * (`storage/app/public`), que en local se publica vía public/storage.
      */
     function imagen(?string $ruta): string
     {
@@ -25,16 +24,15 @@ if (! function_exists('imagen')) {
             return '';
         }
 
-        // Las imágenes del catálogo viven en public/img/{artes,logos,avatares}.
-        // Se comprueban ambos prefijos: la copia "canónica" del repositorio está
-        // en public/img y, en local, el disco público la duplica en public/storage.
-        foreach ([$ruta, 'img/'.$ruta] as $candidata) {
+        // Imágenes del catálogo en public/img y subidas de usuarios en
+        // public/uploads (cuando PUBLIC_DISK_ROOT=public en el hosting).
+        foreach (['img/'.$ruta, 'uploads/'.$ruta, $ruta] as $candidata) {
             if (file_exists(public_path($candidata))) {
                 return asset($candidata);
             }
         }
 
-        return Storage::url($ruta);
+        return Storage::disk('public')->url($ruta);
     }
 }
 

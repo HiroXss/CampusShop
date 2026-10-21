@@ -20,7 +20,7 @@
             <label for="email" class="form-label">Correo universitario</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="username"
                    class="form-control @error('email') is-invalid @enderror"
-                   placeholder="tucorreo@{{ config('campushop.university_domain') }}">
+                   placeholder="tucorreo{{ '@' }}{{ config('campushop.university_domain') }}">
             @error('email')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
 
