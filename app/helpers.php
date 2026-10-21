@@ -25,10 +25,13 @@ if (! function_exists('imagen')) {
             return '';
         }
 
-        // Las imágenes del catálogo viven en public/img/{artes,logos,avatares},
-        // por lo que la ruta guardada (p. ej. "artes/x.jpg") ya es válida allí.
-        if (file_exists(public_path($ruta))) {
-            return asset($ruta);
+        // Las imágenes del catálogo viven en public/img/{artes,logos,avatares}.
+        // Se comprueban ambos prefijos: la copia "canónica" del repositorio está
+        // en public/img y, en local, el disco público la duplica en public/storage.
+        foreach ([$ruta, 'img/'.$ruta] as $candidata) {
+            if (file_exists(public_path($candidata))) {
+                return asset($candidata);
+            }
         }
 
         return Storage::url($ruta);

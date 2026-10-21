@@ -54,28 +54,6 @@ SVG;
 
 $logos = [];
 
-/* Dulce Campus — cupcake en círculo pastel */
-$logos['dulce-campus'] = marco(<<<SVG
-  <circle cx="400" cy="400" r="280" fill="#FFFFFF" opacity="0.55"/>
-  <path d="M270 430 l34 150 a16 16 0 0 0 16 12 h160 a16 16 0 0 0 16 -12 l34 -150 z" fill="#D9A15B"/>
-  <path d="M300 430 q0 -96 84 -96 q28 -62 116 -34 q66 -32 112 26 q60 18 52 104 z" fill="#F6C9D6"/>
-  <path d="M312 408 q10 -62 82 -66 q36 -46 106 -20 q60 -26 94 36 q40 14 34 54 z" fill="#FAD9E3"/>
-  <circle cx="400" cy="316" r="24" fill="#E23B3B"/>
-  <circle cx="400" cy="304" r="6" fill="#FF7B7B"/>
-  <path d="M400 316 q-6 -36 -28 -52" stroke="#5E8B4A" stroke-width="7" fill="none" stroke-linecap="round"/>
-SVG, '#FFF1F5', '#FFD9E4');
-
-/* Tutorías Pro — birrete con fórmula */
-$logos['tutorias-pro'] = marco(<<<SVG
-  <circle cx="400" cy="400" r="280" fill="#FFFFFF" opacity="0.5"/>
-  <path d="M400 250 L610 340 L400 430 L190 340 Z" fill="#5B4BDB"/>
-  <path d="M400 430 L530 378 L530 470 q-60 60 -130 60 q-70 0 -130 -60 L270 378 Z" fill="#3B3AB0"/>
-  <path d="M590 348 v120" stroke="#FF8A3D" stroke-width="14" stroke-linecap="round"/>
-  <circle cx="590" cy="486" r="22" fill="#FF8A3D"/>
-  <text x="400" y="560" text-anchor="middle" font-family="Cambria Math, Georgia, serif"
-        font-size="76" fill="#FF8A3D" font-weight="bold">∫f(x)dx</text>
-SVG, '#EEF0FF', '#D5DBFF');
-
 /* Código Fácil — llaves y terminal */
 $logos['codigo-facil'] = marco(<<<SVG
   <circle cx="400" cy="400" r="280" fill="#FFFFFF" opacity="0.5"/>

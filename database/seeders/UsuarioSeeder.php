@@ -41,8 +41,6 @@ class UsuarioSeeder extends Seeder
 
         // Emprendedores demo (uno por emprendimiento activo).
         $emprendedores = [
-            ['Laura Gómez', 'laura@'.$dominio, 'Ingeniería de Sistemas'],
-            ['Carlos Ruiz', 'carlos@'.$dominio, 'Administración de Empresas'],
             ['Sofía Ramírez', 'sofia@'.$dominio, 'Tecnología en Desarrollo de Software'],
             ['Daniela Herrera', 'daniela@'.$dominio, 'Diseño Gráfico'],
         ];
@@ -61,7 +59,17 @@ class UsuarioSeeder extends Seeder
             );
         }
 
-        // Compradores adicionales para dar vida a las reseñas y pedidos.
-        User::factory()->count(8)->create();
+        // Un comprador adicional para dar vida a las reseñas, pedidos y conversaciones.
+        User::updateOrCreate(
+            ['email' => "andres@{$dominio}"],
+            [
+                'name' => 'Andrés Peña',
+                'password' => Hash::make('password'),
+                'role' => User::ROLE_USER,
+                'program' => 'Ingeniería de Sistemas',
+                'is_active' => true,
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }

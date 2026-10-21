@@ -17,38 +17,6 @@ class ProductoSeeder extends Seeder
 
         // [nombre, tipo, precio, stock, imágenes, descripción]
         $catalogo = [
-            'Dulce Campus' => [
-                [
-                    'Torta de chocolate', 'producto', 55000, 6, ['torta-chocolate', 'torta-chocolate-corte', 'torta-chocolate-personalizada'],
-                    "Torta húmeda de chocolate con relleno de arequipe y cobertura de chocolate semiamargo.\nPorción para 12 personas. Se prepara por encargo con 24 horas de anticipación.",
-                ],
-                [
-                    'Caja de cupcakes (6)', 'producto', 28000, 12, ['cupcakes', 'cupcakes-variedad'],
-                    "Caja de seis cupcakes decorados a elección: vainilla, chocolate o red velvet.\nIdeales para cumpleaños y reuniones de estudio.",
-                ],
-                [
-                    'Cheesecake de maracuyá', 'producto', 38000, 8, ['cheesecake', 'cheesecake-porcion'],
-                    'Cheesecake cremoso con base de galleta y salsa de maracuyá natural. Disponible en porciones individuales o entero.',
-                ],
-                [
-                    'Alfajores artesanales', 'producto', 12000, 30, ['alfajores', 'alfajores-caja'],
-                    'Seis bocaditos de arequipe bañados en chocolate, espolvoreados con azúcar en polvo. Receta de la abuela.',
-                ],
-            ],
-            'Tutorías Pro' => [
-                [
-                    'Tutoría de Cálculo I (1 hora)', 'servicio', 25000, null, ['tutoria-calculo', 'tutoria-calculo-pizarra'],
-                    'Asesoría personalizada de cálculo diferencial: límites, derivadas e integrales. Presencial en el campus o virtual por videollamada.',
-                ],
-                [
-                    'Tutoría de Programación (1 hora)', 'servicio', 30000, null, ['tutoria-programacion', 'tutoria-programacion-consola'],
-                    'Apoyo en fundamentos de programación, estructuras de datos y resolución de ejercicios en Python, Java o C++.',
-                ],
-                [
-                    'Preparación de parciales', 'servicio', 75000, null, ['preparacion-parciales', 'preparacion-parciales-simulacro'],
-                    'Acompañamiento de dos horas para preparar tus parciales: repaso de temas, simulacros y tips de examen.',
-                ],
-            ],
             'Código Fácil' => [
                 [
                     'Página web básica', 'servicio', 350000, null, ['web-basica', 'web-basica-responsive'],
@@ -65,19 +33,19 @@ class ProductoSeeder extends Seeder
             ],
             'Lothus' => [
                 [
-                    'Gorra Loto Negra', 'producto', 45000, 15, ['gora-loto-negra', 'gora-loto-negra-perfil', 'gora-loto-negra-bordado'],
+                    'Gorra Loto Negra', 'producto', 45000, 15, ['gorra-loto-negra', 'gorra-loto-negra-perfil', 'gorra-loto-negra-bordado'],
                     "Gorra negra con la flor de loto bordada en blanco.\nBordado minimalista y versículo «Jehová es mi pastor; nada me faltará» — Salmo 23:1 en el lateral.",
                 ],
                 [
-                    'Gorra Loto Beige', 'producto', 45000, 12, ['gora-loto-beige', 'gora-loto-beige-perfil', 'gora-loto-beige-bordado'],
+                    'Gorra Loto Beige', 'producto', 45000, 12, ['gorra-loto-beige', 'gorra-loto-beige-perfil', 'gorra-loto-beige-bordado'],
                     "Gorra beige de algodón con flor de loto bordada.\nIncluye el versículo «Todo lo puedo en Cristo que me fortalece» — Filipenses 4:13.",
                 ],
                 [
-                    'Gorra Loto Blanca', 'producto', 45000, 18, ['gora-loto-blanca', 'gora-loto-blanca-perfil', 'gora-loto-blanca-bordado'],
+                    'Gorra Loto Blanca', 'producto', 45000, 18, ['gorra-loto-blanca', 'gorra-loto-blanca-perfil', 'gorra-loto-blanca-bordado'],
                     "Gorra blanca con flor de loto en azul índigo.\nVersículo «El Señor es mi luz y mi salvación» — Salmo 27:1 bordado al frente.",
                 ],
                 [
-                    'Gorra Loto Azul', 'producto', 48000, 10, ['gora-loto-azul', 'gora-loto-azul-perfil', 'gora-loto-azul-bordado'],
+                    'Gorra Loto Azul', 'producto', 48000, 10, ['gorra-loto-azul', 'gorra-loto-azul-perfil', 'gorra-loto-azul-bordado'],
                     "Gorra azul índigo con flor de loto bordada en blanco.\nVersículo «Esfuérzate y sé valiente» — Josué 1:9. Edición limitada.",
                 ],
             ],
@@ -85,9 +53,7 @@ class ProductoSeeder extends Seeder
 
         // Categoría por tienda (los servicios académicos usan la categoría del emprendimiento).
         $categoriaServicio = [
-            'Tutorías Pro' => 'Tutorías',
             'Código Fácil' => 'Servicios académicos',
-            'Dulce Campus' => 'Repostería',
             'Lothus' => 'Ropa y accesorios',
         ];
 
@@ -118,12 +84,15 @@ class ProductoSeeder extends Seeder
                     ]
                 );
 
-                // Asocia las imagenes del catalogo (public/img/artes).
+                // Asocia las imagenes del catalogo (public/img/artes). Las gorras
+                // son SVG hechos a medida (color exacto) y los servicios, fotos JPG.
                 $producto->imagenes()->delete();
                 foreach (array_values($imagenes) as $i => $arte) {
+                    $extension = str_starts_with($arte, 'gorra-loto') ? 'svg' : 'jpg';
+
                     ProductoImagen::create([
                         'producto_id' => $producto->id,
-                        'ruta' => "artes/{$arte}.jpg",
+                        'ruta' => "artes/{$arte}.{$extension}",
                         'orden' => $i + 1,
                     ]);
                 }

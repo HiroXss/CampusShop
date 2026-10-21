@@ -3,9 +3,9 @@
 /**
  * Generador de artes SVG para CampusShop.
  *
- * Crea imágenes (productos y logos de emprendimiento) con el look del design
- * system de la app (azul #5B4BDB, acento #FF8A3D). Cada arte es un SVG cuadrado
- * de 800x800 pensado para verse bien recortado en las tarjetas del catálogo.
+ * Los productos que requieren coincidencia exacta (por ejemplo el color de una
+ * gorra) se generan como SVG hechos a medida. Los servicios se sirven con fotos
+ * reales, por lo que aquí solo se generan las gorras de Lothus.
  *
  * Uso:  php scripts/generar-artes.php
  */
@@ -50,79 +50,6 @@ function versiculo(string $texto, float $y = 690): string
 SVG;
 }
 
-$artes = [];
-
-/* ------------------------------------------------------------------ */
-/* DULCE CAMPUS — repostería                                           */
-/* ------------------------------------------------------------------ */
-
-$artes['torta-chocolate'] = lienzo(<<<SVG
-  <ellipse cx="400" cy="640" rx="250" ry="42" fill="#3A2A22" opacity="0.25"/>
-  <rect x="170" y="330" width="460" height="290" rx="26" fill="#6B4226"/>
-  <rect x="170" y="330" width="460" height="70" rx="26" fill="#8A5636"/>
-  <path d="M170 470 q60 46 120 0 q60 -46 120 0 q60 46 120 0 q30 -23 60 -8 l0 30 q-30 -15 -60 8 q-60 46 -120 0 q-60 -46 -120 0 q-60 46 -120 0 z" fill="#F3E0CF"/>
-  <rect x="150" y="600" width="500" height="40" rx="18" fill="#C8A27A"/>
-  <circle cx="290" cy="300" r="34" fill="#E23B3B"/>
-  <circle cx="400" cy="278" r="38" fill="#E23B3B"/>
-  <circle cx="510" cy="300" r="34" fill="#E23B3B"/>
-  <circle cx="290" cy="288" r="10" fill="#FF6B6B"/>
-  <circle cx="400" cy="264" r="12" fill="#FF6B6B"/>
-  <circle cx="510" cy="288" r="10" fill="#FF6B6B"/>
-SVG);
-
-$artes['cupcakes'] = lienzo(<<<SVG
-  <ellipse cx="400" cy="660" rx="250" ry="38" fill="#3A2A22" opacity="0.2"/>
-  <path d="M170 470 l40 170 a18 18 0 0 0 18 14 h264 a18 18 0 0 0 18 -14 l40 -170 z" fill="#D9A15B"/>
-  <path d="M210 470 l-8 36 h316 l-8 -36 z" fill="#C08A46"/>
-  <path d="M200 470 q0 -110 100 -110 q30 -70 130 -40 q80 -40 130 30 q70 20 60 120 z" fill="#F6C9D6"/>
-  <path d="M215 445 q10 -70 95 -75 q40 -52 120 -25 q70 -30 110 40 q45 16 40 60 z" fill="#FAD9E3"/>
-  <circle cx="400" cy="330" r="26" fill="#E23B3B"/>
-  <circle cx="400" cy="316" r="7" fill="#FF7B7B"/>
-  <path d="M400 330 q-6 -40 -30 -58" stroke="#5E8B4A" stroke-width="7" fill="none" stroke-linecap="round"/>
-  <circle cx="560" cy="470" r="18" fill="#8B5E34"/>
-  <circle cx="240" cy="470" r="18" fill="#8B5E34"/>
-SVG);
-
-$artes['cheesecake'] = lienzo(<<<SVG
-  <ellipse cx="400" cy="648" rx="240" ry="40" fill="#3A2A22" opacity="0.18"/>
-  <path d="M200 400 h400 l-30 240 a20 20 0 0 1 -20 18 h-300 a20 20 0 0 1 -20 -18 z" fill="#F6E0B8"/>
-  <path d="M200 400 h400 l-14 44 h-372 z" fill="#E8CB97"/>
-  <path d="M210 470 q50 30 100 0 q50 -30 100 0 q50 30 100 0 q40 -24 90 -6 l-6 34 q-50 -18 -90 6 q-50 30 -100 0 q-50 -30 -100 0 q-50 30 -100 0 z" fill="#FFB03A"/>
-  <ellipse cx="400" cy="400" rx="200" ry="34" fill="#FFF3D8"/>
-  <circle cx="330" cy="392" r="12" fill="#FFB03A"/>
-  <circle cx="400" cy="386" r="14" fill="#FF8A3D"/>
-  <circle cx="470" cy="392" r="12" fill="#FFB03A"/>
-  <path d="M300 250 q40 -60 100 -60 q60 0 100 60 q-50 -20 -100 -20 q-50 0 -100 20 z" fill="#FFD36E"/>
-SVG);
-
-$artes['alfajores'] = lienzo(<<<SVG
-  <ellipse cx="400" cy="650" rx="240" ry="36" fill="#3A2A22" opacity="0.18"/>
-  <g transform="translate(150,380)">
-    <ellipse cx="120" cy="180" rx="110" ry="34" fill="#D9A15B"/>
-    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#FBF3E2"/>
-    <rect x="10" y="140" width="220" height="40" fill="#FBF3E2"/>
-    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#C98A4B"/>
-    <ellipse cx="120" cy="96" rx="110" ry="34" fill="#FBF3E2"/>
-    <rect x="10" y="60" width="220" height="40" fill="#FBF3E2"/>
-    <ellipse cx="120" cy="60" rx="110" ry="34" fill="#E8CB97"/>
-    <path d="M10 140 q110 44 220 0" stroke="#7A5230" stroke-width="6" fill="none" opacity="0.4"/>
-  </g>
-  <g transform="translate(400,320)">
-    <ellipse cx="120" cy="180" rx="110" ry="34" fill="#D9A15B"/>
-    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#FBF3E2"/>
-    <rect x="10" y="140" width="220" height="40" fill="#FBF3E2"/>
-    <ellipse cx="120" cy="140" rx="110" ry="34" fill="#C98A4B"/>
-    <ellipse cx="120" cy="96" rx="110" ry="34" fill="#FBF3E2"/>
-    <rect x="10" y="60" width="220" height="40" fill="#FBF3E2"/>
-    <ellipse cx="120" cy="60" rx="110" ry="34" fill="#E8CB97"/>
-    <path d="M10 140 q110 44 220 0" stroke="#7A5230" stroke-width="6" fill="none" opacity="0.4"/>
-  </g>
-SVG);
-
-/* ------------------------------------------------------------------ */
-/* LOTHUS — gorras minimalistas con flor de loto y versículos          */
-/* ------------------------------------------------------------------ */
-
 /** Flor de loto estilizada, reutilizable. */
 function loto(float $cx, float $cy, float $escala = 1.0, string $color = '#5B4BDB', string $colorBorde = '#FFFFFF'): string
 {
@@ -135,7 +62,7 @@ function loto(float $cx, float $cy, float $escala = 1.0, string $color = '#5B4BD
         [-1.05, 0.10, 0.66],
         [1.05, 0.10, 0.66],
     ];
-    foreach ($petalos as $i => [$dx, $dy, $esc]) {
+    foreach ($petalos as [$dx, $dy, $esc]) {
         $x = $cx + $dx * 46 * $escala;
         $y = $cy + $dy * 46 * $escala;
         $w = 34 * $escala * $esc;
@@ -181,110 +108,99 @@ function gorra(float $cx, float $cy, float $escala, string $copa, string $visera
     return implode("\n  ", $g);
 }
 
-$artes['gora-loto-negra'] = lienzo(gorra(400, 430, 1.28, '#2C2C3A', '#1F1F2A').versiculo('«Jehová es mi pastor; nada me faltará» — Salmo 23:1', 700), '#F3F4FA', '#E2E5F2');
+/** Gorra de perfil: copa lateral + visera hacia la derecha. */
+function gorraPerfil(float $cx, float $cy, float $escala, string $copa, string $visera): string
+{
+    $x = $cx; $y = $cy;
+    $s = $escala;
 
-$artes['gora-loto-beige'] = lienzo(gorra(400, 430, 1.28, '#E9E1D2', '#D6C9B2').versiculo('«Todo lo puedo en Cristo que me fortalece» — Filipenses 4:13', 700), '#FBF7EF', '#F0E7D8');
+    $g = [];
+    // Visera lateral hacia la derecha.
+    $g[] = sprintf('<path d="M%.1f %.1f q%.1f %.1f %.1f %.1f l%.1f %.1f q-%.1f -%.1f -%.1f -%.1f z" fill="%s"/>',
+        $x + 40 * $s, $y + 70 * $s, 150 * $s, 10 * $s, 260 * $s, 60 * $s, 0, 0, 260 * $s, -60 * $s, 150 * $s, -30 * $s, $visera);
+    // Copa de perfil (media cúpula).
+    $g[] = sprintf('<path d="M%.1f %.1f a%.1f %.1f 0 0 1 %.1f 0 l0 %.1f a%.1f %.1f 0 0 1 -%.1f 0 z" fill="%s"/>',
+        $x - 170 * $s, $y + 70 * $s, 170 * $s, 200 * $s, 340 * $s, 20 * $s, 200 * $s, 20 * $s, 340 * $s, $copa);
+    // Costura central.
+    $g[] = sprintf('<path d="M%.1f %.1f q%.1f -%.1f %.1f -%.1f" stroke="#00000022" stroke-width="%.1f" fill="none"/>',
+        $x - 170 * $s, $y + 70 * $s, 170 * $s, 200 * $s, 340 * $s, 0, 6 * $s);
+    // Botón superior.
+    $g[] = sprintf('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>', $x, $y - 130 * $s, 12 * $s, $visera);
+    // Loto al frente.
+    $g[] = loto($x - 40 * $s, $y - 10 * $s, 0.55 * $s, '#FFFFFF', $copa === '#FFFFFF' ? '#5B4BDB' : 'transparent');
 
-$artes['gora-loto-blanca'] = lienzo(gorra(400, 430, 1.28, '#FFFFFF', '#EDEDF5').versiculo('«El Señor es mi luz y mi salvación» — Salmo 27:1', 700), '#EEF1FB', '#DFE4F5');
+    return implode("\n  ", $g);
+}
 
-$artes['gora-loto-azul'] = lienzo(gorra(400, 430, 1.28, '#3B4A8C', '#2C376B').versiculo('«Esfuérzate y sé valiente» — Josué 1:9', 700), '#EDF0FA', '#DDE2F2');
+/** Gorra vista de detalle del bordado (primer plano del logo). */
+function gorraBordado(float $cx, float $cy, float $escala, string $copa, string $hilo): string
+{
+    $x = $cx; $y = $cy;
+    $s = $escala;
 
-/* ------------------------------------------------------------------ */
-/* TUTORÍAS PRO — servicios académicos                                 */
-/* ------------------------------------------------------------------ */
+    $g = [];
+    // Parche de tela con textura de bordado.
+    $g[] = sprintf('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" rx="%.1f" fill="%s"/>',
+        $x - 280 * $s, $y - 280 * $s, 560 * $s, 560 * $s, 40 * $s, $copa);
+    // Líneas de tela.
+    for ($i = 0; $i < 6; $i++) {
+        $yy = $y - 240 * $s + $i * 96 * $s;
+        $g[] = sprintf('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="#00000012" stroke-width="%.1f"/>',
+            $x - 260 * $s, $yy, $x + 260 * $s, $yy, 3 * $s);
+    }
+    // Flor de loto bordada en grande, con color de hilo.
+    $g[] = loto($x, $y, 1.7 * $s, $hilo, $copa === '#FFFFFF' ? '#5B4BDB' : 'transparent');
 
-$artes['tutoria-calculo'] = lienzo(<<<SVG
-  <rect x="150" y="150" width="500" height="500" rx="28" fill="#1E293B"/>
-  <rect x="180" y="180" width="440" height="440" rx="18" fill="#0F172A" stroke="#334155" stroke-width="4"/>
-  <text x="230" y="300" font-family="Cambria Math, Georgia, serif" font-size="90" fill="#7DD3FC">∫</text>
-  <text x="300" y="300" font-family="Cambria Math, Georgia, serif" font-size="66" fill="#E2E8F0">f(x) dx</text>
-  <path d="M240 460 q60 -140 120 -60 q60 80 130 -40" stroke="#FF8A3D" stroke-width="8" fill="none" stroke-linecap="round"/>
-  <line x1="230" y1="520" x2="570" y2="520" stroke="#475569" stroke-width="5"/>
-  <line x1="230" y1="520" x2="230" y2="370" stroke="#475569" stroke-width="5"/>
-  <text x="250" y="580" font-family="Cambria Math, Georgia, serif" font-size="44" fill="#94A3B8">y = f(x)</text>
-  <path d="M560 480 l50 40 l-50 40 z" fill="#FF8A3D"/>
-SVG);
+    return implode("\n  ", $g);
+}
 
-$artes['tutoria-programacion'] = lienzo(<<<SVG
-  <rect x="140" y="170" width="520" height="440" rx="26" fill="#1E293B"/>
-  <rect x="140" y="170" width="520" height="70" rx="26" fill="#334155"/>
-  <circle cx="190" cy="205" r="13" fill="#FF5F57"/>
-  <circle cx="232" cy="205" r="13" fill="#FEBC2E"/>
-  <circle cx="274" cy="205" r="13" fill="#28C840"/>
-  <rect x="180" y="280" width="240" height="18" rx="9" fill="#7DD3FC"/>
-  <rect x="220" y="320" width="330" height="18" rx="9" fill="#FF8A3D"/>
-  <rect x="220" y="360" width="200" height="18" rx="9" fill="#A7F3D0"/>
-  <rect x="260" y="400" width="290" height="18" rx="9" fill="#C4B5FD"/>
-  <rect x="220" y="440" width="180" height="18" rx="9" fill="#7DD3FC"/>
-  <rect x="180" y="480" width="300" height="18" rx="9" fill="#FDA4AF"/>
-  <rect x="180" y="520" width="120" height="18" rx="9" fill="#FDE68A"/>
-  <text x="470" y="560" font-family="Consolas, monospace" font-size="54" fill="#5B4BDB" font-weight="bold">{ }</text>
-SVG);
-
-$artes['preparacion-parciales'] = lienzo(<<<SVG
-  <rect x="200" y="150" width="360" height="500" rx="20" fill="#FFFDF7" stroke="#E2D8C3" stroke-width="4"/>
-  <rect x="330" y="150" width="100" height="60" rx="12" fill="#D6C9B2"/>
-  <line x1="260" y1="300" x2="500" y2="300" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
-  <line x1="260" y1="350" x2="500" y2="350" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
-  <line x1="260" y1="400" x2="430" y2="400" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
-  <path d="M300 500 l60 60 l140 -150" stroke="#22C55E" stroke-width="18" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="560" cy="230" r="54" fill="#FF8A3D"/>
-  <path d="M560 200 v34 l24 16" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round"/>
-  <text x="400" y="620" text-anchor="middle" font-family="Inter, sans-serif" font-size="40" font-weight="700" fill="#1E293B">A preparar</text>
-SVG);
+$artes = [];
 
 /* ------------------------------------------------------------------ */
-/* CÓDIGO FÁCIL — servicios de software                                */
+/* LOTHUS — gorras minimalistas con flor de loto y versículos          */
 /* ------------------------------------------------------------------ */
 
-$artes['web-basica'] = lienzo(<<<SVG
-  <rect x="120" y="180" width="560" height="380" rx="24" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="4"/>
-  <rect x="120" y="180" width="560" height="64" rx="24" fill="#5B4BDB"/>
-  <circle cx="170" cy="212" r="11" fill="#FFFFFF" opacity="0.9"/>
-  <circle cx="206" cy="212" r="11" fill="#FFFFFF" opacity="0.6"/>
-  <circle cx="242" cy="212" r="11" fill="#FFFFFF" opacity="0.35"/>
-  <rect x="160" y="290" width="200" height="24" rx="12" fill="#5B4BDB"/>
-  <rect x="160" y="336" width="480" height="16" rx="8" fill="#CBD5E1"/>
-  <rect x="160" y="368" width="420" height="16" rx="8" fill="#CBD5E1"/>
-  <rect x="160" y="418" width="150" height="46" rx="12" fill="#FF8A3D"/>
-  <rect x="380" y="290" width="260" height="150" rx="16" fill="#EEF0FF"/>
-  <path d="M430 400 l60 -60 l50 40 l70 -80" stroke="#5B4BDB" stroke-width="8" fill="none" stroke-linecap="round"/>
-  <rect x="160" y="500" width="140" height="30" rx="15" fill="#EEF0FF"/>
-  <rect x="320" y="500" width="140" height="30" rx="15" fill="#EEF0FF"/>
-SVG);
+$gorras = [
+    'negra' => ['copa' => '#2C2C3A', 'visera' => '#1F1F2A', 'hilo' => '#E9EAF2',
+        'bg' => ['#F3F4FA', '#E2E5F2'], 'vers' => '«Jehová es mi pastor; nada me faltará» — Salmo 23:1'],
+    'beige' => ['copa' => '#E9E1D2', 'visera' => '#D6C9B2', 'hilo' => '#8A7A5C',
+        'bg' => ['#FBF7EF', '#F0E7D8'], 'vers' => '«Todo lo puedo en Cristo que me fortalece» — Filipenses 4:13'],
+    'blanca' => ['copa' => '#FFFFFF', 'visera' => '#EDEDF5', 'hilo' => '#5B4BDB',
+        'bg' => ['#EEF1FB', '#DFE4F5'], 'vers' => '«El Señor es mi luz y mi salvación» — Salmo 27:1'],
+    'azul' => ['copa' => '#3B4A8C', 'visera' => '#2C376B', 'hilo' => '#E9EAF2',
+        'bg' => ['#EDF0FA', '#DDE2F2'], 'vers' => '«Esfuérzate y sé valiente» — Josué 1:9'],
+];
 
-$artes['correccion-codigo'] = lienzo(<<<SVG
-  <rect x="150" y="170" width="500" height="460" rx="24" fill="#0F172A"/>
-  <text x="200" y="270" font-family="Consolas, monospace" font-size="42" fill="#7DD3FC">const app = ()=&gt; {</text>
-  <text x="230" y="330" font-family="Consolas, monospace" font-size="42" fill="#FDA4AF">return  data.map(x =&gt; x.id)</text>
-  <text x="200" y="390" font-family="Consolas, monospace" font-size="42" fill="#A7F3D0">}</text>
-  <path d="M200 430 l0 0" stroke="#FF8A3D" stroke-width="6"/>
-  <rect x="190" y="410" width="330" height="52" rx="8" fill="none" stroke="#FF8A3D" stroke-width="5" stroke-dasharray="14 10"/>
-  <g transform="translate(520,430)">
-    <circle r="60" fill="#FF8A3D"/>
-    <path d="M-26 -6 l30 30 l-30 30" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="-30" y1="24" x2="-6" y2="24" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
-  </g>
-  <text x="200" y="540" font-family="Consolas, monospace" font-size="38" fill="#22C55E">// corregido ✓</text>
-SVG);
+foreach ($gorras as $color => $d) {
+    [$bg1, $bg2] = $d['bg'];
 
-$artes['soporte-tecnico'] = lienzo(<<<SVG
-  <rect x="180" y="200" width="440" height="300" rx="20" fill="#334155"/>
-  <rect x="210" y="230" width="380" height="240" rx="12" fill="#0F172A"/>
-  <path d="M300 330 l-50 40 l50 40 M500 330 l50 40 l-50 40" stroke="#7DD3FC" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="430" y1="300" x2="370" y2="440" stroke="#FF8A3D" stroke-width="14" stroke-linecap="round"/>
-  <rect x="330" y="500" width="140" height="40" rx="12" fill="#334155"/>
-  <rect x="270" y="540" width="260" height="26" rx="13" fill="#475569"/>
-  <g transform="translate(600,300)">
-    <circle r="70" fill="#FF8A3D"/>
-    <path d="M-20 -30 a30 30 0 1 1 34 40 l0 18" stroke="#FFFFFF" stroke-width="12" fill="none" stroke-linecap="round"/>
-    <circle cx="-3" cy="46" r="10" fill="#FFFFFF"/>
-  </g>
-SVG);
+    // Vista frontal.
+    $artes["gorra-loto-{$color}"] = lienzo(
+        gorra(400, 430, 1.28, $d['copa'], $d['visera']).versiculo($d['vers'], 700),
+        $bg1, $bg2
+    );
+
+    // Vista de perfil.
+    $artes["gorra-loto-{$color}-perfil"] = lienzo(
+        gorraPerfil(400, 430, 1.15, $d['copa'], $d['visera']).versiculo($d['vers'], 700),
+        $bg1, $bg2
+    );
+
+    // Detalle del bordado.
+    $artes["gorra-loto-{$color}-bordado"] = lienzo(
+        gorraBordado(400, 400, 1.0, $d['copa'], $d['hilo']).versiculo($d['vers'], 730),
+        $bg1, $bg2
+    );
+}
 
 /* ------------------------------------------------------------------ */
 /* ESCRIBIR ARCHIVOS                                                   */
 /* ------------------------------------------------------------------ */
+
+// Limpia los SVG anteriores para no dejar arte obsoleto.
+foreach (glob("{$destino}/*.svg") as $viejo) {
+    @unlink($viejo);
+}
 
 $escritos = 0;
 foreach ($artes as $nombre => $svg) {

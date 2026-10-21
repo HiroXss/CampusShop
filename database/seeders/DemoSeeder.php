@@ -30,7 +30,7 @@ class DemoSeeder extends Seeder
             ->get();
 
         if ($compradores->isEmpty()) {
-            $compradores = User::factory()->count(5)->create();
+            $compradores = User::factory()->count(2)->create();
         }
 
         // El estudiante demo debe tener pedidos propios (comprador principal).
