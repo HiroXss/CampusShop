@@ -11,7 +11,7 @@
                 <div class="col-md-6">
                     <div class="cs-card p-3 h-100 d-flex flex-column">
                         <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+                            <img src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                                  alt="" class="rounded-3" style="width:56px;height:56px;object-fit:cover;background:#E7EEFF;">
                             <div>
                                 <h6 class="fw-bold mb-0">{{ $emprendimiento->nombre }}</h6>

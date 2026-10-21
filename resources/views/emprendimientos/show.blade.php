@@ -13,7 +13,7 @@
             <div style="height:150px;background:linear-gradient(135deg,var(--cs-primary),#7B6CFF);"></div>
             <div class="p-4">
                 <div class="d-flex flex-column flex-md-row align-items-md-end gap-3" style="margin-top:-64px">
-                    <img src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+                    <img src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                          alt="{{ $emprendimiento->nombre }}"
                          class="rounded-4 border border-4 border-white" style="width:112px;height:112px;object-fit:cover;background:#fff;">
                     <div class="flex-grow-1">
@@ -99,7 +99,7 @@
                     @forelse ($resenas as $resena)
                         <div class="{{ ! $loop->last ? 'border-bottom pb-3 mb-3' : '' }}">
                             <div class="d-flex align-items-center gap-2">
-                                <img src="{{ $resena->comprador->avatar ? Storage::url($resena->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
+                                <img src="{{ $resena->comprador->avatar ? imagen($resena->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
                                      alt="" class="rounded-circle" style="width:36px;height:36px;object-fit:cover;">
                                 <div>
                                     <strong class="d-block small">{{ $resena->comprador->name }}</strong>

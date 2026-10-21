@@ -16,7 +16,7 @@
             <h6 class="fw-semibold mb-2">{{ $esVendedor ? 'Comprador' : 'Vendedor' }}</h6>
             @if ($esVendedor)
                 <div class="d-flex align-items-center gap-2">
-                    <img src="{{ $pedido->comprador->avatar ? Storage::url($pedido->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
+                    <img src="{{ $pedido->comprador->avatar ? imagen($pedido->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
                          alt="" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
                     <div>
                         <div class="fw-medium">{{ $pedido->comprador->name }}</div>
@@ -28,7 +28,7 @@
                 </a>
             @else
                 <div class="d-flex align-items-center gap-2">
-                    <img src="{{ $pedido->emprendimiento->logo ? Storage::url($pedido->emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+                    <img src="{{ $pedido->emprendimiento->logo ? imagen($pedido->emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                          alt="" class="rounded-3" style="width:40px;height:40px;object-fit:cover;">
                     <div>
                         <div class="fw-medium">{{ $pedido->emprendimiento->nombre }}</div>

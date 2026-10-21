@@ -58,7 +58,7 @@
         <div class="d-flex flex-wrap gap-3">
             @foreach ($producto->imagenes as $imagen)
                 <div class="text-center">
-                    <img src="{{ Storage::url($imagen->ruta) }}" alt="" class="rounded-2" style="width:96px;height:96px;object-fit:cover;background:#E7EEFF;">
+                    <img src="{{ imagen($imagen->ruta) }}" alt="" class="rounded-2" style="width:96px;height:96px;object-fit:cover;background:#E7EEFF;">
                     <div class="form-check mt-1">
                         <input class="form-check-input" type="checkbox" name="imagenes_quitar[]" value="{{ $imagen->id }}" id="quitar-{{ $imagen->id }}">
                         <label class="form-check-label small" for="quitar-{{ $imagen->id }}">Quitar</label>

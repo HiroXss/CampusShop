@@ -5,6 +5,35 @@ use App\Models\Pedido;
 use App\Models\Producto;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+
+if (! function_exists('imagen')) {
+    /**
+     * URL pública de una imagen guardada en el disco público.
+     *
+     * Si el archivo también existe en `public/` (como las imágenes del catálogo,
+     * logos y avatares que viven en `public/img`), se sirve directamente desde
+     * ahí. Esto permite que la app funcione en hostings compartidos donde
+     * `symlink()` está deshabilitado y `php artisan storage:link` no es posible.
+     *
+     * Si no está en `public/` (subidas de usuarios), se usa el disco público
+     * normal (`storage/app/public`).
+     */
+    function imagen(?string $ruta): string
+    {
+        if (! $ruta) {
+            return '';
+        }
+
+        // Las imágenes del catálogo viven en public/img/{artes,logos,avatares},
+        // por lo que la ruta guardada (p. ej. "artes/x.jpg") ya es válida allí.
+        if (file_exists(public_path($ruta))) {
+            return asset($ruta);
+        }
+
+        return Storage::url($ruta);
+    }
+}
 
 if (! function_exists('cop')) {
     /**

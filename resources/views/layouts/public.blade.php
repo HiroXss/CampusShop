@@ -54,7 +54,7 @@
                         </li>
                         <li class="nav-item dropdown ms-lg-2">
                             <a class="nav-link dropdown-toggle p-0" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ auth()->user()->avatar ? Storage::url(auth()->user()->avatar) : asset('img/avatar-placeholder.svg') }}"
+                                <img src="{{ auth()->user()->avatar ? imagen(auth()->user()->avatar) : asset('img/avatar-placeholder.svg') }}"
                                      alt="{{ auth()->user()->name }}" class="avatar">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow">

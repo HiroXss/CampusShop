@@ -9,7 +9,7 @@
 <div class="cs-card cs-card-hover product-card d-flex flex-column h-100">
     <a href="{{ route('catalogo.producto', $producto) }}" class="text-decoration-none d-block">
         <div class="product-thumb">
-            <img src="{{ $img ? Storage::url($img) : asset('img/placeholder-producto.svg') }}"
+            <img src="{{ $img ? imagen($img) : asset('img/placeholder-producto.svg') }}"
                  alt="{{ $producto->nombre }}" loading="lazy">
         </div>
     </a>

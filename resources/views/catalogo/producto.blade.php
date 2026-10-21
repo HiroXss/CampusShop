@@ -25,7 +25,7 @@
             <div class="col-lg-6">
                 <div class="cs-card p-2">
                     <img id="galeria-principal"
-                         src="{{ $img ? Storage::url($img) : asset('img/placeholder-producto.svg') }}"
+                         src="{{ $img ? imagen($img) : asset('img/placeholder-producto.svg') }}"
                          alt="{{ $producto->nombre }}"
                          class="w-100 rounded-3" style="aspect-ratio:1/1;object-fit:cover;background:#E7EEFF;">
                 </div>
@@ -33,8 +33,8 @@
                     <div class="d-flex gap-2 mt-2 flex-wrap">
                         @foreach ($producto->imagenes as $imagen)
                             <button type="button" class="btn p-0 border rounded-3 galeria-miniatura"
-                                    data-src="{{ Storage::url($imagen->ruta) }}" style="width:72px;height:72px;overflow:hidden;">
-                                <img src="{{ Storage::url($imagen->ruta) }}" alt="" class="w-100 h-100" style="object-fit:cover;">
+                                    data-src="{{ imagen($imagen->ruta) }}" style="width:72px;height:72px;overflow:hidden;">
+                                <img src="{{ imagen($imagen->ruta) }}" alt="" class="w-100 h-100" style="object-fit:cover;">
                             </button>
                         @endforeach
                     </div>
@@ -50,7 +50,7 @@
                 <h1 class="h3 fw-bold mb-2">{{ $producto->nombre }}</h1>
 
                 <a href="{{ route('emprendimientos.show', $emprendimiento) }}" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-3">
-                    <img src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+                    <img src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                          alt="{{ $emprendimiento->nombre }}" class="rounded-3" style="width:32px;height:32px;object-fit:cover;">
                     <span class="fw-semibold" style="color:var(--cs-text)">{{ $emprendimiento->nombre }}</span>
                 </a>
@@ -138,7 +138,7 @@
             <div class="tab-pane fade" id="tab-res">
                 @forelse ($resenas as $resena)
                     <div class="d-flex gap-3 {{ ! $loop->last ? 'border-bottom pb-3 mb-3' : '' }}">
-                        <img src="{{ $resena->comprador->avatar ? Storage::url($resena->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
+                        <img src="{{ $resena->comprador->avatar ? imagen($resena->comprador->avatar) : asset('img/avatar-placeholder.svg') }}"
                              alt="" class="rounded-circle" style="width:42px;height:42px;object-fit:cover;">
                         <div>
                             <div class="d-flex align-items-center gap-2">

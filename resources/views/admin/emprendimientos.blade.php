@@ -41,7 +41,7 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+                                    <img src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                                          alt="" class="rounded-2" style="width:40px;height:40px;object-fit:cover;background:#E7EEFF;">
                                     <div>
                                         <a href="{{ route('emprendimientos.show', $emprendimiento) }}" class="fw-medium text-decoration-none" style="color:var(--cs-text)">{{ $emprendimiento->nombre }}</a>

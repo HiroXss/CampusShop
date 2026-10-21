@@ -40,7 +40,7 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="{{ $usuario->avatar ? Storage::url($usuario->avatar) : asset('img/avatar-placeholder.svg') }}"
+                                    <img src="{{ $usuario->avatar ? imagen($usuario->avatar) : asset('img/avatar-placeholder.svg') }}"
                                          alt="" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
                                     <div>
                                         <div class="fw-medium">{{ $usuario->name }}</div>

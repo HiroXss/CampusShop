@@ -17,7 +17,7 @@
                         @foreach ($productos as $producto)
                             @php $cantidad = $cantidades[$producto->id] ?? 0; @endphp
                             <div class="d-flex gap-3 p-3 {{ ! $loop->last ? 'border-bottom' : '' }}">
-                                <img src="{{ $producto->imagenes->first()?->ruta ? Storage::url($producto->imagenes->first()->ruta) : asset('img/placeholder-producto.svg') }}"
+                                <img src="{{ $producto->imagenes->first()?->ruta ? imagen($producto->imagenes->first()->ruta) : asset('img/placeholder-producto.svg') }}"
                                      alt="{{ $producto->nombre }}" class="rounded-3" style="width:84px;height:84px;object-fit:cover;background:#E7EEFF;">
                                 <div class="flex-grow-1">
                                     <div class="d-flex justify-content-between gap-2">

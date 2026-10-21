@@ -9,7 +9,7 @@
 <a href="{{ route('emprendimientos.show', $emprendimiento) }}" class="text-decoration-none d-block h-100">
     <div class="cs-card cs-card-hover p-3 d-flex flex-column h-100">
         <div class="d-flex align-items-center gap-3 mb-2">
-            <img src="{{ $logo ? Storage::url($logo) : asset('img/logo-placeholder.svg') }}"
+            <img src="{{ $logo ? imagen($logo) : asset('img/logo-placeholder.svg') }}"
                  alt="{{ $emprendimiento->nombre }}"
                  class="rounded-3" style="width:56px;height:56px;object-fit:cover;background:#E7EEFF;">
             <div class="min-w-0">

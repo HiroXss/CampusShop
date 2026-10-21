@@ -18,7 +18,7 @@
 
                     <div class="d-flex align-items-center gap-3 mb-4">
                         <img id="preview-avatar"
-                             src="{{ $user->avatar ? Storage::url($user->avatar) : asset('img/avatar-placeholder.svg') }}"
+                             src="{{ $user->avatar ? imagen($user->avatar) : asset('img/avatar-placeholder.svg') }}"
                              alt="" class="rounded-circle" style="width:88px;height:88px;object-fit:cover;">
                         <div>
                             <label class="form-label" for="avatar">Foto de perfil</label>

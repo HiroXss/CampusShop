@@ -21,22 +21,22 @@ class EmprendimientoSeeder extends Seeder
             [
                 'Dulce Campus', 'laura@', 'Repostería',
                 'Repostería artesanal hecha por estudiantes: tortas, cupcakes, cheesecakes y postres para cada ocasión.',
-                true, 'logos/dulce-campus.svg', '@dulcecampus', 'FFF1F5',
+                true, 'logos/dulce-campus.jpg', '@dulcecampus', 'FFF1F5',
             ],
             [
                 'Tutorías Pro', 'carlos@', 'Tutorías',
                 'Asesorías y tutorías académicas de cálculo, programación y preparación de parciales, presenciales o virtuales.',
-                true, 'logos/tutorias-pro.svg', '@tutoriaspro', 'EEF0FF',
+                true, 'logos/tutorias-pro.jpg', '@tutoriaspro', 'EEF0FF',
             ],
             [
                 'Código Fácil', 'sofia@', 'Servicios académicos',
                 'Apoyo en desarrollo de software, corrección de código y soporte técnico para tus proyectos académicos.',
-                true, 'logos/codigo-facil.svg', '@codigofacil', 'E8EEFF',
+                true, 'logos/codigo-facil.jpg', '@codigofacil', 'E8EEFF',
             ],
             [
                 'Lothus', 'daniela@', 'Ropa y accesorios',
                 'Gorras minimalistas con la flor de loto bordada y versículos de la Biblia. Diseño limpio, hecho a mano.',
-                true, 'logos/lothus.svg', '@lothus.co', 'F2F5FF',
+                true, 'logos/lothus.jpg', '@lothus.co', 'F2F5FF',
             ],
         ];
 

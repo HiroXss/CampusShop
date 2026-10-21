@@ -71,13 +71,13 @@
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="logo">Logo</label>
                             <input id="logo" type="file" name="logo" accept="image/*" class="form-control" data-preview="#preview-logo">
-                            <img id="preview-logo" src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : '' }}" alt=""
+                            <img id="preview-logo" src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : '' }}" alt=""
                                  class="mt-2 rounded-3 {{ $emprendimiento->logo ? '' : 'd-none' }}" style="width:80px;height:80px;object-fit:cover;">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label" for="banner">Banner</label>
                             <input id="banner" type="file" name="banner" accept="image/*" class="form-control" data-preview="#preview-banner">
-                            <img id="preview-banner" src="{{ $emprendimiento->banner ? Storage::url($emprendimiento->banner) : '' }}" alt=""
+                            <img id="preview-banner" src="{{ $emprendimiento->banner ? imagen($emprendimiento->banner) : '' }}" alt=""
                                  class="mt-2 rounded-3 {{ $emprendimiento->banner ? '' : 'd-none' }}" style="width:80px;height:80px;object-fit:cover;">
                         </div>
                     </div>

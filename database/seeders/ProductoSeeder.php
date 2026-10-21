@@ -118,12 +118,12 @@ class ProductoSeeder extends Seeder
                     ]
                 );
 
-                // Asocia las artes generadas (storage/app/public/artes).
+                // Asocia las imagenes del catalogo (public/img/artes).
                 $producto->imagenes()->delete();
                 foreach (array_values($imagenes) as $i => $arte) {
                     ProductoImagen::create([
                         'producto_id' => $producto->id,
-                        'ruta' => "artes/{$arte}.svg",
+                        'ruta' => "artes/{$arte}.jpg",
                         'orden' => $i + 1,
                     ]);
                 }

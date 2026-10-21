@@ -15,7 +15,7 @@
             <div class="col-lg-8">
                 <div class="d-flex align-items-center gap-2 mb-3">
                     <a href="{{ route('conversaciones.index') }}" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-left"></i></a>
-                    <img src="{{ $avatar ? Storage::url($avatar) : ($soyComprador ? asset('img/logo-placeholder.svg') : asset('img/avatar-placeholder.svg')) }}"
+                    <img src="{{ $avatar ? imagen($avatar) : ($soyComprador ? asset('img/logo-placeholder.svg') : asset('img/avatar-placeholder.svg')) }}"
                          alt="" class="rounded-circle" style="width:40px;height:40px;object-fit:cover;">
                     <div>
                         <div class="fw-semibold">{{ $otro->name ?? $otro->nombre }}</div>

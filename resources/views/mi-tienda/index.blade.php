@@ -25,7 +25,7 @@
     {{-- Resumen de la tienda --}}
     <div class="cs-card p-3 mb-4">
         <div class="d-flex align-items-center gap-3 flex-wrap">
-            <img src="{{ $emprendimiento->logo ? Storage::url($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
+            <img src="{{ $emprendimiento->logo ? imagen($emprendimiento->logo) : asset('img/logo-placeholder.svg') }}"
                  alt="" class="rounded-3" style="width:64px;height:64px;object-fit:cover;">
             <div class="flex-grow-1">
                 <div class="d-flex align-items-center gap-2">
@@ -61,7 +61,7 @@
                         <tr>
                             <td>
                                 <div class="d-flex align-items-center gap-2">
-                                    <img src="{{ $producto->imagenes->first()?->ruta ? Storage::url($producto->imagenes->first()->ruta) : asset('img/placeholder-producto.svg') }}"
+                                    <img src="{{ $producto->imagenes->first()?->ruta ? imagen($producto->imagenes->first()->ruta) : asset('img/placeholder-producto.svg') }}"
                                          alt="" class="rounded-2" style="width:44px;height:44px;object-fit:cover;background:#E7EEFF;">
                                     <div>
                                         <div class="fw-medium">{{ $producto->nombre }}</div>

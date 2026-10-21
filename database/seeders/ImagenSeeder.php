@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * Publica las imágenes del proyecto (public/img/artes y public/img/logos) en el
+ * Publica las imágenes del proyecto (public/img/artes, logos y avatares) en el
  * disco público, para que las vistas puedan servirlas con Storage::url().
  *
  * Las imágenes fuente viven en el repositorio (public/img), de modo que un
@@ -20,6 +20,7 @@ class ImagenSeeder extends Seeder
         $mapas = [
             public_path('img/artes') => 'artes',
             public_path('img/logos') => 'logos',
+            public_path('img/avatares') => 'avatares',
         ];
 
         foreach ($mapas as $origen => $destino) {

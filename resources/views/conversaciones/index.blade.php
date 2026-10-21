@@ -19,7 +19,7 @@
                         $avatar = $soyComprador ? $conversacion->emprendimiento->logo : $conversacion->comprador->avatar;
                     @endphp
                     <a href="{{ route('conversaciones.show', $conversacion) }}" class="text-decoration-none d-flex align-items-center gap-3 p-3 {{ ! $loop->last ? 'border-bottom' : '' }}">
-                        <img src="{{ $avatar ? Storage::url($avatar) : ($soyComprador ? asset('img/logo-placeholder.svg') : asset('img/avatar-placeholder.svg')) }}"
+                        <img src="{{ $avatar ? imagen($avatar) : ($soyComprador ? asset('img/logo-placeholder.svg') : asset('img/avatar-placeholder.svg')) }}"
                              alt="" class="rounded-circle" style="width:48px;height:48px;object-fit:cover;">
                         <div class="flex-grow-1 min-w-0">
                             <div class="d-flex justify-content-between align-items-center">

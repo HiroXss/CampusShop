@@ -22,6 +22,7 @@ class UsuarioSeeder extends Seeder
                 'program' => 'Administración',
                 'is_active' => true,
                 'email_verified_at' => now(),
+                'avatar' => 'avatares/admin.jpg',
             ]
         );
 
