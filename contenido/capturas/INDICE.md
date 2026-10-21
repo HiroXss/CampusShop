@@ -141,5 +141,5 @@ Las imágenes del catálogo y los logos de las tiendas **viven en el repositorio
 (`public/img/artes` y `public/img/logos`) y se publican al disco público mediante
 `ImagenSeeder`, de modo que un clon nuevo reproduce el catálogo con arte real.
 
-El archivo `contenido/img-upload.png` es la imagen de ejemplo que se adjunta al
-publicar un producto durante las capturas (#37) y en las pruebas manuales.
+Para la captura de publicar un producto (#37) el driver adjunta una imagen PNG de
+ejemplo desde su propia carpeta temporal; no forma parte del repositorio.
