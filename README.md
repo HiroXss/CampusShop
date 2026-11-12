@@ -42,12 +42,12 @@ Exploración ágil de productos y servicios con filtros multifacéticos (precio,
 ---
 
 ### 2. Experiencia del Comprador (Estudiante)
-Flujo completo de compra: detalle de producto con galería fotográfica real, carrito de compras, checkout con elección de método de pago y seguimiento de pedidos por estados.
+Flujo completo de compra: detalle de producto con galería, carrito de compras, checkout con elección de método de pago y seguimiento de pedidos por estados.
 
-| Detalle de Producto & Galería | Carrito & Checkout |
+| Detalle de Producto (Lothus) | Carrito & Checkout |
 |:---:|:---:|
-| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/08-detalle-producto-torta.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/22-carrito-con-productos.png" width="450" /> |
-| *Galería de fotos reales, stock en tiempo real y reseñas* | *Resumen de orden, notas de entrega y validaciones* |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/09-detalle-producto-gorra.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/22-carrito-con-productos.png" width="450" /> |
+| *Ficha de producto con opciones, stock y especificaciones* | *Resumen de orden, notas de entrega y validaciones* |
 
 | Chat Comprador ↔ Emprendedor | Historial de Pedidos y Estados |
 |:---:|:---:|
@@ -59,10 +59,10 @@ Flujo completo de compra: detalle de producto con galería fotográfica real, ca
 ### 3. Panel del Emprendedor («Mi Tienda»)
 Centro de mando para que los emprendedores universitarios gestionen sus productos, actualicen estados de pedidos y analicen su rentabilidad.
 
-| Gestión de Tienda e Inventario | Métricas y Analíticas en Tiempo Real |
+| Gestión de Mi Tienda (Lothus) | Métricas y Analíticas en Tiempo Real |
 |:---:|:---:|
-| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/34-mi-tienda-dashboard.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/51-metricas-lothus.png" width="450" /> |
-| *Control de disponibilidad, precios y catálogo* | *Gráficos de ventas, visitas y ticket promedio* |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/49-mi-tienda-lothus.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/51-metricas-lothus.png" width="450" /> |
+| *Control de disponibilidad, precios y catálogo de Lothus* | *Gráficos de ventas, visitas y ticket promedio* |
 
 ---
 
