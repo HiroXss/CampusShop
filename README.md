@@ -1,7 +1,7 @@
 # 🎓 CampusShop — Marketplace de Emprendimientos Universitarios
 
 <p align="center">
-  <img src="contenido/capturas/01-inicio-publico.png" alt="CampusShop Preview" width="100%" style="border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+  <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/01-inicio-publico.png" alt="CampusShop Preview" width="100%" />
 </p>
 
 <p align="center">
@@ -36,7 +36,7 @@ Exploración ágil de productos y servicios con filtros multifacéticos (precio,
 
 | Portada Principal | Catálogo Multifiltro |
 |:---:|:---:|
-| <img src="contenido/capturas/02-inicio-publico-viewport.png" width="450" /> | <img src="contenido/capturas/03-catalogo-completo.png" width="450" /> |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/02-inicio-publico-viewport.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/03-catalogo-completo.png" width="450" /> |
 | *Hero, productos destacados y accesos directos* | *Filtros reactivos por categoría, tipo y precio* |
 
 ---
@@ -46,12 +46,12 @@ Flujo completo de compra: detalle de producto con galería fotográfica real, ca
 
 | Detalle de Producto & Galería | Carrito & Checkout |
 |:---:|:---:|
-| <img src="contenido/capturas/08-detalle-producto-torta.png" width="450" /> | <img src="contenido/capturas/22-carrito-con-productos.png" width="450" /> |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/08-detalle-producto-torta.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/22-carrito-con-productos.png" width="450" /> |
 | *Galería de fotos reales, stock en tiempo real y reseñas* | *Resumen de orden, notas de entrega y validaciones* |
 
 | Chat Comprador ↔ Emprendedor | Historial de Pedidos y Estados |
 |:---:|:---:|
-| <img src="contenido/capturas/29-chat-conversacion.png" width="450" /> | <img src="contenido/capturas/24-mis-pedidos.png" width="450" /> |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/29-chat-conversacion.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/24-mis-pedidos.png" width="450" /> |
 | *Mensajería interna para coordinar entregas en campus* | *Estados: Pendiente, Confirmado, Entregado, etc.* |
 
 ---
@@ -61,7 +61,7 @@ Centro de mando para que los emprendedores universitarios gestionen sus producto
 
 | Gestión de Tienda e Inventario | Métricas y Analíticas en Tiempo Real |
 |:---:|:---:|
-| <img src="contenido/capturas/34-mi-tienda-dashboard.png" width="450" /> | <img src="contenido/capturas/51-metricas-lothus.png" width="450" /> |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/34-mi-tienda-dashboard.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/51-metricas-lothus.png" width="450" /> |
 | *Control de disponibilidad, precios y catálogo* | *Gráficos de ventas, visitas y ticket promedio* |
 
 ---
@@ -71,7 +71,7 @@ Supervisión general del ecosistema universitario: aprobación de nuevos emprend
 
 | Dashboard Administrativo | Moderación y Reportes |
 |:---:|:---:|
-| <img src="contenido/capturas/53-admin-dashboard.png" width="450" /> | <img src="contenido/capturas/63-admin-reportes.png" width="450" /> |
+| <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/53-admin-dashboard.png" width="450" /> | <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/63-admin-reportes.png" width="450" /> |
 | *Métricas globales, balance del sistema y accesos* | *Cola de revisión de contenido y sanciones* |
 
 ---
@@ -80,9 +80,9 @@ Supervisión general del ecosistema universitario: aprobación de nuevos emprend
 Diseño adaptado para teléfonos inteligentes y tablets, optimizado para navegación rápida entre clases.
 
 <p align="center">
-  <img src="contenido/capturas/69-movil-inicio.png" width="280" alt="Móvil Inicio" style="margin: 5px; border-radius: 8px;" />
-  <img src="contenido/capturas/70-movil-catalogo.png" width="280" alt="Móvil Catálogo" style="margin: 5px; border-radius: 8px;" />
-  <img src="contenido/capturas/71-movil-emprendimiento.png" width="280" alt="Móvil Emprendimiento" style="margin: 5px; border-radius: 8px;" />
+  <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/69-movil-inicio.png" width="280" alt="Móvil Inicio" />
+  <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/70-movil-catalogo.png" width="280" alt="Móvil Catálogo" />
+  <img src="https://raw.githubusercontent.com/HiroXss/CampusShop/main/contenido/capturas/71-movil-emprendimiento.png" width="280" alt="Móvil Emprendimiento" />
 </p>
 
 ---
