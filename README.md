@@ -1,199 +1,227 @@
-# CampusShop
+# 🎓 CampusShop — Marketplace de Emprendimientos Universitarios
 
-Tienda virtual de los **emprendimientos de estudiantes universitarios**. Los
-estudiantes descubren productos y servicios, se comunican con los emprendedores por
-chat, hacen pedidos, los califican y reportan contenido inapropiado. Los
-emprendedores abren su tienda, publican lo que venden, atienden pedidos y miden su
-crecimiento. Un administrador aprueba emprendimientos, gestiona categorías, modera
-reportes y supervisa usuarios.
+<p align="center">
+  <img src="contenido/capturas/01-inicio-publico.png" alt="CampusShop Preview" width="100%" style="border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+</p>
 
-Este repositorio implementa el sistema descrito en `docs/SRS.md` (especificación
-funcional) siguiendo el plan por fases de `docs/PLAN.md`.
+<p align="center">
+  <a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 12" /></a>
+  <a href="https://php.net"><img src="https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP 8.2+" /></a>
+  <a href="https://getbootstrap.com"><img src="https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5" /></a>
+  <a href="https://vitejs.dev"><img src="https://img.shields.io/badge/Vite-5.x-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" /></a>
+  <a href="https://www.mysql.com"><img src="https://img.shields.io/badge/MySQL-8.x-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" /></a>
+  <a href="https://chartjs.org"><img src="https://img.shields.io/badge/Chart.js-3.x-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white" alt="Chart.js" /></a>
+  <img src="https://img.shields.io/badge/Tests-30%2F30%20Passed-success?style=for-the-badge" alt="Tests 30/30 Passed" />
+</p>
 
-## Stack
+---
 
-- **Laravel 12** + PHP 8.2+
-- **MySQL** (Laragon)
-- **Laravel Breeze** (Blade) con verificación de correo
-- **Bootstrap 5** + **Vite** (Sass + JS), iconos **Bootstrap Icons**
-- **Chart.js** para el panel de métricas del emprendedor
+## 📖 Descripción
 
-Zona horaria `America/Bogota`, locale `es`, moneda **COP** formateada con el helper
-`cop()` (`$12.000`).
+**CampusShop** es una plataforma de comercio electrónico diseñada exclusivamente para la comunidad universitaria. Conecta a **estudiantes emprendedores** con la comunidad universitaria, permitiéndoles comercializar sus productos y servicios de forma segura, formalizar sus negocios y medir su crecimiento en tiempo real.
 
-## Requisitos
+### 🌟 Propuesta de Valor
+- **Comunidad cerrada y segura:** Registro verificado exclusivamente con correo institucional (`@unimisionpaz.edu.co`).
+- **Canal de comunicación directo:** Chat interno con polling en tiempo real entre comprador y emprendedor para coordinar entregas dentro del campus.
+- **Transparencia y reputación:** Sistema de calificaciones y reseñas basado en compras efectivamente entregadas.
+- **Analíticas de negocio:** Panel de métricas financieras y de visitas con gráficos interactivos (`Chart.js`) para cada emprendedor.
+- **Moderación comunitaria:** Sistema de reportes preventivos para proteger la integridad del catálogo y la comunidad.
 
-- PHP 8.2 o superior con las extensiones habituales de Laravel.
+---
+
+## 📸 Galería y Vistas del Sistema
+
+### 1. Experiencia Pública y Catálogo
+Exploración ágil de productos y servicios con filtros multifacéticos (precio, categoría, tipo de oferta y búsqueda de texto completo).
+
+| Portada Principal | Catálogo Multifiltro |
+|:---:|:---:|
+| <img src="contenido/capturas/02-inicio-publico-viewport.png" width="450" /> | <img src="contenido/capturas/03-catalogo-completo.png" width="450" /> |
+| *Hero, productos destacados y accesos directos* | *Filtros reactivos por categoría, tipo y precio* |
+
+---
+
+### 2. Experiencia del Comprador (Estudiante)
+Flujo completo de compra: detalle de producto con galería fotográfica real, carrito de compras, checkout con elección de método de pago y seguimiento de pedidos por estados.
+
+| Detalle de Producto & Galería | Carrito & Checkout |
+|:---:|:---:|
+| <img src="contenido/capturas/08-detalle-producto-torta.png" width="450" /> | <img src="contenido/capturas/22-carrito-con-productos.png" width="450" /> |
+| *Galería de fotos reales, stock en tiempo real y reseñas* | *Resumen de orden, notas de entrega y validaciones* |
+
+| Chat Comprador ↔ Emprendedor | Historial de Pedidos y Estados |
+|:---:|:---:|
+| <img src="contenido/capturas/29-chat-conversacion.png" width="450" /> | <img src="contenido/capturas/24-mis-pedidos.png" width="450" /> |
+| *Mensajería interna para coordinar entregas en campus* | *Estados: Pendiente, Confirmado, Entregado, etc.* |
+
+---
+
+### 3. Panel del Emprendedor («Mi Tienda»)
+Centro de mando para que los emprendedores universitarios gestionen sus productos, actualicen estados de pedidos y analicen su rentabilidad.
+
+| Gestión de Tienda e Inventario | Métricas y Analíticas en Tiempo Real |
+|:---:|:---:|
+| <img src="contenido/capturas/34-mi-tienda-dashboard.png" width="450" /> | <img src="contenido/capturas/51-metricas-lothus.png" width="450" /> |
+| *Control de disponibilidad, precios y catálogo* | *Gráficos de ventas, visitas y ticket promedio* |
+
+---
+
+### 4. Panel de Administración y Moderación
+Supervisión general del ecosistema universitario: aprobación de nuevos emprendimientos, gestión de categorías y moderación de contenido reportado.
+
+| Dashboard Administrativo | Moderación y Reportes |
+|:---:|:---:|
+| <img src="contenido/capturas/53-admin-dashboard.png" width="450" /> | <img src="contenido/capturas/63-admin-reportes.png" width="450" /> |
+| *Métricas globales, balance del sistema y accesos* | *Cola de revisión de contenido y sanciones* |
+
+---
+
+### 5. Experiencia Móvil (Responsive)
+Diseño adaptado para teléfonos inteligentes y tablets, optimizado para navegación rápida entre clases.
+
+<p align="center">
+  <img src="contenido/capturas/69-movil-inicio.png" width="280" alt="Móvil Inicio" style="margin: 5px; border-radius: 8px;" />
+  <img src="contenido/capturas/70-movil-catalogo.png" width="280" alt="Móvil Catálogo" style="margin: 5px; border-radius: 8px;" />
+  <img src="contenido/capturas/71-movil-emprendimiento.png" width="280" alt="Móvil Emprendimiento" style="margin: 5px; border-radius: 8px;" />
+</p>
+
+---
+
+## 🛠️ Stack Tecnológico
+
+| Capa | Tecnologías |
+|---|---|
+| **Backend** | [Laravel 12](https://laravel.com), PHP 8.2+, Eloquent ORM, Laravel Breeze (Blade Auth) |
+| **Frontend** | [Bootstrap 5.3](https://getbootstrap.com), Sass, Vite 5, [Bootstrap Icons](https://icons.getbootstrap.com) |
+| **Visualización** | [Chart.js](https://www.chartjs.org) (métricas financieras y tráfico) |
+| **Base de Datos** | MySQL 8 (soporte para transacciones con bloqueo pesimista y SoftDeletes) |
+| **Almacenamiento** | Helper desacoplado `imagen()` compatible con `public/img` y disco público para hosting compartido |
+| **Pruebas** | PHPUnit 11 (30 casos de prueba funcionales + Smoke Tests) |
+
+---
+
+## ⚙️ Reglas de Negocio Destacadas
+
+- **RN-01 (Dominio Institucional):** Solo se admiten correos bajo el dominio de la institución (`@unimisionpaz.edu.co`).
+- **RN-02 (Aprobación Previa):** Los emprendimientos requieren aprobación del administrador antes de publicar en el catálogo público.
+- **RN-03 (Visibilidad de Productos):** Se distinguen productos disponibles, agotados (visibles sin compra) e inactivos (ocultos).
+- **RN-06 (Unicidad por Pedido):** Cada pedido pertenece exclusivamente a un solo emprendimiento; el stock y precios se verifican en el servidor mediante transacciones seguras (`lockForUpdate`).
+- **RN-07 (Reseñas Verificadas):** Solo un comprador con pedido en estado `Entregado` puede calificar y reseñar una única vez.
+- **RN-10 (Carga de Imágenes):** Formatos permitidos `jpg`, `png`, `webp` de hasta 2 MB, con galerías de hasta 5 fotos por producto.
+- **RN-11 (Umbral de Moderación):** Al recibir 3 reportes pendientes, un producto o emprendimiento se oculta preventivamente hasta su revisión por el administrador.
+
+---
+
+## 🚀 Puesta en Marcha (Instalación Local)
+
+### Prerrequisitos
+- PHP 8.2 o superior con extensiones estándar (`pdo_mysql`, `mbstring`, `fileinfo`, etc.).
 - Composer.
 - Node.js 18+ y npm.
-- MySQL 8.
+- MySQL 8 o MariaDB (incluido en Laragon / XAMPP).
 
-## Puesta en marcha
+### Paso a paso
 
 ```bash
-# 1. Dependencias
+# 1. Clonar el repositorio
+git clone https://github.com/HiroXss/CampusShop.git
+cd CampusShop
+
+# 2. Instalar dependencias
 composer install
 npm install
 
-# 2. Entorno
-cp .env.example .env          # en Windows: copy .env.example .env
+# 3. Configurar entorno
+copy .env.example .env
 php artisan key:generate
 
-# 3. Base de datos: crea la base "campushop" en MySQL y ajusta .env si hace falta.
-#    Luego migra y carga los datos de demostración:
+# 4. Configurar base de datos en .env (DB_DATABASE=campushop)
+#    y ejecutar migraciones con datos de demostración y fotos reales:
 php artisan migrate:fresh --seed
 
-# 4. Enlace de almacenamiento (logos e imágenes de productos)
+# 5. Generar enlace de almacenamiento
 php artisan storage:link
 
-# 5. Front-end
-npm run build                 # o: npm run dev (desarrollo)
+# 6. Compilar assets del frontend
+npm run build
+# O en modo desarrollo: npm run dev
 
-# 6. Servidor
+# 7. Iniciar el servidor local
 php artisan serve
 ```
 
-La aplicación queda disponible en `http://127.0.0.1:8000`.
+La aplicación estará lista en: [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-### Correo en desarrollo
+---
 
-`.env.example` apunta a **Mailpit** en `127.0.0.1:1025` (interfaz web en
-`http://127.0.0.1:8025`). En Laragon, Mailpit suele venir incluido. Si no lo usas,
-puedes cambiar `MAIL_MAILER=log` para que los correos se escriban en
-`storage/logs/laravel.log`.
+## 🔑 Credenciales de Demostración
 
-## Credenciales de demostración
+Todas las cuentas del seeder utilizan la contraseña **`password`**:
 
-Todas las cuentas sembradas usan la contraseña **`password`** y el dominio
-`@unimisionpaz.edu.co` (configurable con `UNIVERSITY_EMAIL_DOMAIN`).
-
-| Rol | Correo | Uso |
+| Rol | Correo Electrónico | Tienda / Propósito |
 |---|---|---|
-| Administrador | `admin@unimisionpaz.edu.co` | Panel de administración |
-| Estudiante (comprador) | `estudiante@unimisionpaz.edu.co` | Catálogo, carrito, pedidos, chat, reseñas |
-| Emprendedor | `laura@unimisionpaz.edu.co` | Dulce Campus (Repostería) |
-| Emprendedor | `carlos@unimisionpaz.edu.co` | Tutorías Pro (Tutorías) |
-| Emprendedor | `maria@unimisionpaz.edu.co` | Estampados UMP (Ropa y accesorios) |
-| Emprendedor | `andres@unimisionpaz.edu.co` | Manos Creativas (Arte y manualidades) |
-| Emprendedor | `sofia@unimisionpaz.edu.co` | Código Fácil (Servicios académicos) |
+| **Administrador** | `admin@unimisionpaz.edu.co` | Panel administrativo, aprobación y moderación |
+| **Estudiante (Comprador)** | `estudiante@unimisionpaz.edu.co` | Compras, carrito, pedidos, chat y reseñas |
+| **Emprendedora (Repostería)** | `laura@unimisionpaz.edu.co` | **Dulce Campus** (Tortas, cupcakes, alfajores) |
+| **Emprendedor (Tutorías)** | `carlos@unimisionpaz.edu.co` | **Tutorías Pro** (Cálculo, programación, parciales) |
+| **Emprendedora (Software)** | `sofia@unimisionpaz.edu.co` | **Código Fácil** (Páginas web, soporte técnico) |
+| **Emprendedora (Moda)** | `daniela@unimisionpaz.edu.co` | **Lothus** (Gorras minimalistas con bordado fino) |
+| **Emprendedor (Pendiente)** | `nuevo@unimisionpaz.edu.co` | **Snacks Universitarios** (Cola de aprobación admin) |
 
-El sembrador también crea un emprendimiento en estado **pendiente** («Snacks
-Universitarios») para probar la cola de aprobación del administrador.
+---
 
-## Parámetros de negocio
+## 🧪 Pruebas Automatizadas
 
-Estos valores viven en `config/campushop.php` y se leen del `.env` (sección 8.5 del
-SRS), de modo que nada queda fijo en el código:
-
-| Variable | Por defecto | Descripción |
-|---|---|---|
-| `UNIVERSITY_EMAIL_DOMAIN` | `unimisionpaz.edu.co` | Dominio permitido en el registro (RN-01) |
-| `REQUIRE_APPROVAL` | `true` | Exigir aprobación del admin a emprendimientos (RN-02) |
-| `MAX_IMAGES_PER_PRODUCT` | `5` | Imágenes por producto (RN-10) |
-| `MAX_IMAGE_SIZE_KB` | `2048` | Tamaño máximo por imagen (RN-10) |
-| `REPORTS_THRESHOLD` | `3` | Reportes pendientes que ocultan un elemento (RN-11) |
-| `CHAT_POLL_SECONDS` | `10` | Intervalo de refresco del chat (RF-33) |
-| `PAGE_SIZE` | `12` | Elementos por página |
-| `FEATURED_LIMIT` | `8` | Emprendimientos destacados en el inicio |
-| `TOP_SELLING_DAYS` | `30` | Ventana de «más vendidos» |
-| `MIN_REVIEWS_FOR_RANKING` | `3` | Reseñas mínimas para el ranking (RN-09) |
-| `MAX_ORDERS_PER_HOUR` | `10` | Pedidos por usuario y hora (RNF-13) |
-| `MAX_MESSAGES_PER_MINUTE` | `30` | Mensajes por usuario y minuto (RNF-13) |
-| `MAX_LOGIN_ATTEMPTS` | `5` | Intentos de inicio de sesión por minuto (RNF-13) |
-
-## Rutas principales
-
-| Método | URI | Acceso |
-|---|---|---|
-| GET | `/` | Público — inicio con destacados y rankings |
-| GET | `/productos`, `/productos/{id}` | Público — catálogo con filtros y detalle |
-| GET | `/emprendimientos`, `/emprendimientos/{slug}` | Público — listado y página del emprendimiento |
-| GET/POST | `/register`, `/login`, `/forgot-password` | Invitado (Breeze) |
-| GET | `/email/verify/{id}/{hash}` | Correo firmado |
-| GET/PATCH/DELETE | `/profile` | Autenticado — ver, editar y eliminar cuenta |
-| GET/POST | `/vender` | Autenticado y verificado — activar emprendimiento |
-| GET/PUT | `/mi-emprendimiento`, `/mi-emprendimiento/pausar`, `/mi-emprendimiento/reactivar` | Emprendedor |
-| GET | `/mi-tienda`, `/mi-tienda/productos/...`, `/mi-tienda/pedidos`, `/mi-tienda/metricas` | Emprendedor |
-| GET | `/carrito`, `/mis-pedidos`, `/pedidos/{id}`, `/conversaciones` | Autenticado |
-| GET | `/admin`, `/admin/aprobacion`, `/admin/emprendimientos`, `/admin/categorias`, `/admin/reportes`, `/admin/usuarios` | Administrador |
-
-## Pruebas
-
-La suite cubre los **30 casos del plan de pruebas** del SRS (P01–P30), además de la
-prueba de humo de todas las páginas y las pruebas de Breeze.
+El proyecto incluye una suite completa de pruebas unitarias y de integración que validan los **30 casos del plan de pruebas (P01–P30)** más pruebas de humo:
 
 ```bash
 php artisan test
 ```
 
-Las pruebas corren contra una base de datos independiente. Copia `.env.testing`
-(ya incluido en `.gitignore`) apuntando a `campushop_test`:
-
-```
-APP_ENV=testing
-DB_DATABASE=campushop_test
-```
-
-Crea la base `campushop_test` en MySQL; `php artisan test` aplica las migraciones
-automáticamente.
-
-| Archivo | Fase / casos |
+| Suite | Casos Cubiertos |
 |---|---|
-| `tests/Feature/AccesoPerfilTest.php` | Fase 1 — P01–P04 |
-| `tests/Feature/EmprendimientoTest.php` | Fase 3 — P05–P06 |
-| `tests/Feature/ProductoTest.php` | Fase 4 — P07–P08 |
-| `tests/Feature/CatalogoTest.php` | Fase 5 — P09–P10 |
-| `tests/Feature/ChatTest.php` | Fase 7 — P11–P13 |
-| `tests/Feature/PedidoTest.php` | Fase 6 — P14–P21 |
-| `tests/Feature/ResenaTest.php` | Fase 8 — P22–P24 |
-| `tests/Feature/MetricasTest.php` | Fase 9 — P25–P27 |
-| `tests/Feature/ModeracionTest.php` | Fase 10 — P28–P30 |
-| `tests/Feature/SmokeTest.php` | Prueba de humo de todas las páginas |
+| `AccesoPerfilTest` | P01–P04: Registro, login institucional y perfil |
+| `EmprendimientoTest` | P05–P06: Creación y ciclo de vida de tiendas |
+| `ProductoTest` | P07–P08: Publicación, stock y reglas de catálogo |
+| `CatalogoTest` | P09–P10: Búsqueda y filtros multifacéticos |
+| `PedidoTest` | P14–P21: Checkout, flujo de estados y control de concurrencia |
+| `ChatTest` | P11–P13: Conversaciones y mensajería en vivo |
+| `ResenaTest` | P22–P24: Validación de reseñas verificadas |
+| `MetricasTest` | P25–P27: Cálculo de métricas y gráficos |
+| `ModeracionTest` | P28–P30: Reportes y umbral de moderación |
+| `SmokeTest` | Validación de respuesta HTTP 200 de todas las rutas |
 
-## Estructura del proyecto
+---
+
+## 📁 Estructura del Repositorio
 
 ```
-app/
-  Http/Controllers/       Controladores (público, comprador, Mi Tienda, Admin)
-  Http/Requests/          Validación con Form Requests
-  Http/Middleware/        EnsureHasEmprendimiento, EnsureUserIsAdmin
-  Models/                 12 modelos Eloquent (SoftDeletes en users, emprendimientos, productos)
-  Policies/               Autorización (RNF-05)
-  Services/               PedidoService (pedidos/stock), MetricasService (visitas/rankings)
-  helpers.php             cop(), carrito*()
-config/campushop.php      Parámetros de negocio (RNF-11)
-database/
-  migrations/             12 tablas del dominio (+ cache, jobs y sesiones)
-  factories/              Datos de prueba
-  seeders/                Datos de demostración
-docs/
-  SRS.md                  Especificación funcional (fuente de verdad)
-  PLAN.md                 Plan por fases y estado
-  DECISIONES.md           Decisiones cuando el SRS es ambiguo
-  design/                 Maquetas y design system de referencia
-resources/
-  views/                  Plantillas Blade (Bootstrap 5)
-  sass/, js/              Estilos y comportamiento (Vite)
-routes/web.php            Rutas de la aplicación
-tests/Feature/            Pruebas por fase (P01–P30) y de humo
+CampusShop/
+├── app/
+│   ├── Http/Controllers/    # Controladores (Público, Comprador, Mi Tienda, Admin)
+│   ├── Http/Requests/       # Form Requests con reglas de validación
+│   ├── Http/Middleware/     # Control de acceso y roles
+│   ├── Models/              # 12 modelos Eloquent con SoftDeletes y relaciones
+│   ├── Policies/            # Políticas de autorización por entidad
+│   ├── Services/            # Lógica de dominio (PedidoService, MetricasService)
+│   └── helpers.php          # Helpers globales: cop(), imagen(), carrito*()
+├── config/campushop.php     # Parámetros y constantes de negocio configurables
+├── database/
+│   ├── migrations/          # Esquema relacional estructurado
+│   └── seeders/             # Sembradores de datos y catálogo con fotos reales
+├── docs/                    # Especificación SRS, bitácoras y decisiones de diseño
+├── public/img/              # Fotografías reales, logos y assets del catálogo
+├── resources/
+│   ├── views/               # Vistas Blade con componentes modulares
+│   └── sass/ & js/          # Estilos y scripts con Vite
+└── tests/Feature/           # Suite automatizada de pruebas P01 a P30
 ```
 
-## Reglas de negocio destacadas
+---
 
-- **RN-01** Solo correos del dominio universitario pueden registrarse.
-- **RN-02** Cada estudiante tiene un solo emprendimiento; para publicar debe estar aprobado.
-- **RN-03** El catálogo muestra productos disponibles y agotados; el inactivo no aparece.
-- **RN-04 / RN-05** Cada quien gestiona lo suyo: productos, pedidos y conversaciones.
-- **RN-06** Un pedido es de un solo emprendimiento; precios y stock se validan en el servidor.
-- **RN-07** Solo se reseña un pedido entregado, una vez, por su comprador.
-- **RN-08 / RN-09** Métricas y rankings se calculan sobre hechos reales (entregas, reseñas mínimas).
-- **RN-10** Imágenes `jpg/png/webp` de máximo 2 MB, hasta 5 por producto.
-- **RN-11** Al alcanzar el umbral de reportes pendientes, el elemento se oculta.
-- **RNF-13** Límites de pedidos, mensajes e intentos de acceso.
-- **RNF-16** Operaciones de stock en transacciones con bloqueo para evitar la sobreventa.
+## 📄 Documentación Adicional
 
-## Documentación
-
-- [`docs/SRS.md`](docs/SRS.md) — especificación de requerimientos.
-- [`docs/PLAN.md`](docs/PLAN.md) — fases y estado.
-- [`docs/DECISIONES.md`](docs/DECISIONES.md) — decisiones de diseño.
+- [`docs/SRS.md`](docs/SRS.md): Especificación formal de requerimientos de software (SRS).
+- [`docs/PLAN.md`](docs/PLAN.md): Plan de trabajo por fases y trazabilidad.
+- [`docs/DECISIONES.md`](docs/DECISIONES.md): Registro de decisiones de arquitectura y diseño.
+- [`contenido/capturas/INDICE.md`](contenido/capturas/INDICE.md): Catálogo y descripción de las 76 capturas de pantalla del sistema.

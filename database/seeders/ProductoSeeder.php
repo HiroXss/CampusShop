@@ -17,6 +17,38 @@ class ProductoSeeder extends Seeder
 
         // [nombre, tipo, precio, stock, imágenes, descripción]
         $catalogo = [
+            'Dulce Campus' => [
+                [
+                    'Torta de chocolate', 'producto', 55000, 6, ['torta-chocolate', 'torta-chocolate-corte', 'torta-chocolate-personalizada'],
+                    "Torta húmeda de chocolate con relleno de arequipe y cobertura de chocolate semiamargo.\nPorción para 12 personas. Se prepara por encargo con 24 horas de anticipación.",
+                ],
+                [
+                    'Caja de cupcakes (6)', 'producto', 28000, 12, ['cupcakes', 'cupcakes-variedad'],
+                    "Caja de seis cupcakes decorados a elección: vainilla, chocolate o red velvet.\nIdeales para cumpleaños y reuniones de estudio.",
+                ],
+                [
+                    'Cheesecake de maracuyá', 'producto', 38000, 8, ['cheesecake', 'cheesecake-porcion'],
+                    'Cheesecake cremoso con base de galleta y salsa de maracuyá natural. Disponible en porciones individuales o entero.',
+                ],
+                [
+                    'Alfajores artesanales', 'producto', 12000, 30, ['alfajores', 'alfajores-caja'],
+                    'Seis bocaditos de arequipe bañados en chocolate, espolvoreados con azúcar en polvo. Receta de la abuela.',
+                ],
+            ],
+            'Tutorías Pro' => [
+                [
+                    'Tutoría de Cálculo I (1 hora)', 'servicio', 25000, null, ['tutoria-calculo', 'tutoria-calculo-pizarra'],
+                    'Asesoría personalizada de cálculo diferencial: límites, derivadas e integrales. Presencial en el campus o virtual por videollamada.',
+                ],
+                [
+                    'Tutoría de Programación (1 hora)', 'servicio', 30000, null, ['tutoria-programacion', 'tutoria-programacion-consola'],
+                    'Apoyo en fundamentos de programación, estructuras de datos y resolución de ejercicios en Python, Java o C++.',
+                ],
+                [
+                    'Preparación de parciales', 'servicio', 75000, null, ['preparacion-parciales', 'preparacion-parciales-simulacro'],
+                    'Acompañamiento de dos horas para preparar tus parciales: repaso de temas, simulacros y tips de examen.',
+                ],
+            ],
             'Código Fácil' => [
                 [
                     'Página web básica', 'servicio', 350000, null, ['web-basica', 'web-basica-responsive'],
@@ -53,6 +85,8 @@ class ProductoSeeder extends Seeder
 
         // Categoría por tienda (los servicios académicos usan la categoría del emprendimiento).
         $categoriaServicio = [
+            'Dulce Campus' => 'Repostería',
+            'Tutorías Pro' => 'Tutorías',
             'Código Fácil' => 'Servicios académicos',
             'Lothus' => 'Ropa y accesorios',
         ];
@@ -84,15 +118,12 @@ class ProductoSeeder extends Seeder
                     ]
                 );
 
-                // Asocia las imagenes del catalogo (public/img/artes). Las gorras
-                // son SVG hechos a medida (color exacto) y los servicios, fotos JPG.
+                // Asocia las fotos reales del catálogo (public/img/artes/*.jpg).
                 $producto->imagenes()->delete();
                 foreach (array_values($imagenes) as $i => $arte) {
-                    $extension = str_starts_with($arte, 'gorra-loto') ? 'svg' : 'jpg';
-
                     ProductoImagen::create([
                         'producto_id' => $producto->id,
-                        'ruta' => "artes/{$arte}.{$extension}",
+                        'ruta' => "artes/{$arte}.jpg",
                         'orden' => $i + 1,
                     ]);
                 }

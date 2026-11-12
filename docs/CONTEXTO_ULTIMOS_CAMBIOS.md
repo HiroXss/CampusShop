@@ -116,3 +116,19 @@ Correcciones aplicadas al proceso de captura:
 14 productos, 33 imágenes, 20 pedidos, 4 reseñas, 12 conversaciones, 48 mensajes y
 5 reportes. Todas las páginas responden 200 y sirven las imágenes desde `/storage`.
 
+---
+
+## 9. Modernización de Presentación en GitHub y Fotos Reales del Catálogo (11 de noviembre de 2026)
+
+### 9.1 Nuevo README de Alto Impacto para GitHub
+- Rediseño completo de `README.md` orientado a presentación profesional en GitHub.
+- Badges oficiales (Laravel 12, PHP 8.2+, Bootstrap 5.3, Vite 5, MySQL 8, Chart.js, Tests 30/30).
+- **Showcase / Galería Visual** incrustando las capturas reales de `contenido/capturas/` agrupadas por rol (público, comprador, panel de tienda, panel administrativo y vistas responsive móviles).
+- Actualización y sincronización exacta de la tabla de credenciales de demostración.
+- Documentación de arquitectura y reglas de negocio clave.
+
+### 9.2 Fotografías Reales para Todo el Catálogo
+- Se reemplazaron los archivos vectoriales planos `.svg` de las gorras de Lothus por fotografías reales de alta calidad (`.jpg`) con ortografía normalizada (`gorra-loto-*.jpg`), incluyendo vistas frontal, lateral y detalle de bordado.
+- Se restauró la alineación completa de los 4 emprendimientos de demostración (*Dulce Campus*, *Tutorías Pro*, *Código Fácil*, *Lothus*) con sus logos y fotografías reales de productos (repostería, tutorías presenciales/virtuales, servicios de desarrollo y moda universitaria).
+- Seeders actualizados: `UsuarioSeeder.php`, `EmprendimientoSeeder.php` y `ProductoSeeder.php`.
+
