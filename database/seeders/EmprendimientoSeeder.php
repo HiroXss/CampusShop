@@ -19,16 +19,6 @@ class EmprendimientoSeeder extends Seeder
         // [nombre, prefijo de correo, categoría, descripción, destacado, logo, instagram, color del banner]
         $definiciones = [
             [
-                'Dulce Campus', 'laura@', 'Repostería',
-                'Repostería artesanal hecha por estudiantes: tortas, cupcakes, cheesecakes y postres para cada ocasión.',
-                true, 'logos/dulce-campus.jpg', '@dulcecampus', 'FFF1F5',
-            ],
-            [
-                'Tutorías Pro', 'carlos@', 'Tutorías',
-                'Asesorías y tutorías académicas de cálculo, programación y preparación de parciales, presenciales o virtuales.',
-                true, 'logos/tutorias-pro.jpg', '@tutoriaspro', 'EEF0FF',
-            ],
-            [
                 'Código Fácil', 'sofia@', 'Servicios académicos',
                 'Apoyo en desarrollo de software, corrección de código y soporte técnico para tus proyectos académicos.',
                 true, 'logos/codigo-facil.jpg', '@codigofacil', 'E8EEFF',

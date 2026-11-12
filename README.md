@@ -162,10 +162,9 @@ Todas las cuentas del seeder utilizan la contraseña **`password`**:
 |---|---|---|
 | **Administrador** | `admin@unimisionpaz.edu.co` | Panel administrativo, aprobación y moderación |
 | **Estudiante (Comprador)** | `estudiante@unimisionpaz.edu.co` | Compras, carrito, pedidos, chat y reseñas |
-| **Emprendedora (Repostería)** | `laura@unimisionpaz.edu.co` | **Dulce Campus** (Tortas, cupcakes, alfajores) |
-| **Emprendedor (Tutorías)** | `carlos@unimisionpaz.edu.co` | **Tutorías Pro** (Cálculo, programación, parciales) |
 | **Emprendedora (Software)** | `sofia@unimisionpaz.edu.co` | **Código Fácil** (Páginas web, soporte técnico) |
-| **Emprendedora (Moda)** | `daniela@unimisionpaz.edu.co` | **Lothus** (Gorras minimalistas con bordado fino) |
+| **Emprendedora (Moda)** | `daniela@unimisionpaz.edu.co` | **Lothus** (Gorras minimalistas con bordado) |
+| **Comprador Adicional** | `andres@unimisionpaz.edu.co` | Interacción en pedidos, reseñas y chat |
 | **Emprendedor (Pendiente)** | `nuevo@unimisionpaz.edu.co` | **Snacks Universitarios** (Cola de aprobación admin) |
 
 ---

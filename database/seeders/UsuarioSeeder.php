@@ -41,8 +41,6 @@ class UsuarioSeeder extends Seeder
 
         // Emprendedores demo (uno por emprendimiento activo).
         $emprendedores = [
-            ['Laura Gómez', 'laura@'.$dominio, 'Ingeniería de Sistemas'],
-            ['Carlos Ruiz', 'carlos@'.$dominio, 'Administración de Empresas'],
             ['Sofía Ramírez', 'sofia@'.$dominio, 'Tecnología en Desarrollo de Software'],
             ['Daniela Herrera', 'daniela@'.$dominio, 'Diseño Gráfico'],
         ];
